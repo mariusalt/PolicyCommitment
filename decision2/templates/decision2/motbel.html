@@ -1,0 +1,965 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Motivationsabfrage
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript">  
+var slider1 = document.getElementById("slider1");
+var output1 = document.getElementById("show1");
+output1.innerHTML = slider1.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value + "%";
+}
+
+function updateTextInput1(val) {
+          document.getElementById('textInput1').value=val; 
+          }
+
+
+var slider2 = document.getElementById("slider2");
+var output2 = document.getElementById("show2");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value + "%";
+}
+
+function updateTextInput2(val) {
+          document.getElementById('textInput2').value=val; 
+          }
+
+
+var slider3 = document.getElementById("slider3");
+var output3 = document.getElementById("show3");
+output3.innerHTML = slider3.value;
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value + "%";
+}
+
+function updateTextInput3(val) {
+          document.getElementById('textInput3').value=val; 
+          }
+
+
+var slider4 = document.getElementById("slider4");
+var output4 = document.getElementById("show4");
+output4.innerHTML = slider4.value;
+
+slider4.oninput = function() {
+  output4.innerHTML = this.value + "%";
+}
+
+function updateTextInput4(val) {
+          document.getElementById('textInput4').value=val; 
+          }
+
+var slider5 = document.getElementById("slider5");
+var output5 = document.getElementById("show5");
+output5.innerHTML = slider5.value;
+
+slider5.oninput = function() {
+  output5.innerHTML = this.value + "%";
+}
+
+function updateTextInput5(val) {
+          document.getElementById('textInput5').value=val; 
+          }
+
+$(document).ready(function () {
+        $('.slider1').on('input change', function () {
+            $('.slider1').addClass('myclass');
+        });
+
+    });
+
+$(document).ready(function () {
+  $('.slider2').on('input change', function () {
+      $('.slider2').addClass('myclass');
+  });
+
+});
+
+$(document).ready(function () {
+  $('.slider3').on('input change', function () {
+      $('.slider3').addClass('myclass');
+  });
+
+});
+
+$(document).ready(function () {
+  $('.slider4').on('input change', function () {
+      $('.slider4').addClass('myclass');
+  });
+
+});
+
+$(document).ready(function () {
+  $('.slider5').on('input change', function () {
+      $('.slider5').addClass('myclass');
+  });
+
+});
+
+document.getElementById("show1").style.display="none";
+function showhide1()
+    {
+      document.getElementById("show1").style.display="block";
+    } 
+
+document.getElementById("show2").style.display="none";
+function showhide2()
+    {
+      document.getElementById("show2").style.display="block";
+    } 
+document.getElementById("show3").style.display="none";
+function showhide3()
+    {
+      document.getElementById("show3").style.display="block";
+    } 
+
+document.getElementById("show4").style.display="none";
+function showhide4()
+    {
+      document.getElementById("show4").style.display="block";
+    } 
+
+document.getElementById("show5").style.display="none";
+function showhide5()
+    {
+      document.getElementById("show5").style.display="block";
+    } 
+
+    document.getElementById("hideit").style.display="none";
+      function shownow()
+    {
+        var div = document.getElementById("hideit");
+    if (div.style.display === "none") {
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+      }
+    } 
+
+        </script>
+</script>
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 5px;
+    }
+.b{
+        padding-top: 30px ;
+        padding-bottom: 20px ;
+
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:80%;
+  max-height:80%;
+  padding-bottom: 10px ;
+}
+img.im2 {
+  max-width:110%;
+  max-height:110%;
+  padding-bottom: 1px ;
+}
+img.im3 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+#button1 {
+    position: relative;
+    top:100%;
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #button1:hover {
+  background-color:#3c5ccf;
+  }
+  #button1:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  div.bg {
+background-image: url(../images/bg.gif);
+background-color:orange;
+width:500px;height:200px;
+border:1px solid red;
+padding:20px;
+}
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider1 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider1:focus {
+    outline: none;
+}
+
+.slider1::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+    -webkit-transform:rotate(270deg);
+}
+
+.slider1::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider1 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+   -moz-transform:rotate(270deg);
+}
+
+
+.slider1::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider1::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider2 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider2:focus {
+    outline: none;
+}
+
+.slider2::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+    -webkit-transform:rotate(270deg);
+}
+
+.slider2::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider2 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+    -moz-transform:rotate(270deg);
+}
+
+
+.slider2::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider2::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider3 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider3:focus {
+    outline: none;
+}
+
+.slider3::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+    -webkit-transform:rotate(270deg);
+}
+
+.slider3::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider3 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+    -moz-transform:rotate(270deg);
+}
+
+
+.slider3::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider3::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider4 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider4:focus {
+    outline: none;
+}
+
+.slider4::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+    -webkit-transform:rotate(270deg);
+}
+
+.slider4::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider4 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+    -moz-transform:rotate(270deg);
+}
+
+
+.slider4::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider4::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider5 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider5:focus {
+    outline: none;
+}
+
+.slider5::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+    -webkit-transform:rotate(270deg);
+}
+
+.slider5::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider5 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+    -moz-transform:rotate(270deg);
+}
+
+
+.slider5::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider5::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+.slider1 {
+    width: 25%;
+    position: absolute;
+    top: 44%;
+    left: 0%;
+}
+#show1 {
+    width: 5%;
+    position: absolute;
+    top: 44%;
+    left: 16%;
+}
+.slider2 {
+    width: 25%;
+    position: absolute;
+    top: 44%;
+    left: 20%;
+}
+#show2 {
+    width: 5%;
+    position: absolute;
+    top: 44%;
+    left: 36%;
+}
+#slider3 {
+    width: 25%;
+    position: absolute;
+    top: 44%;
+    left: 40%;
+}
+#show3 {
+    width: 5%;
+    position: absolute;
+    top: 44%;
+    left: 56%;
+}
+.slider4 {
+    width: 25%;
+    position: absolute;
+    top: 44%;
+    left: 60%;
+}
+#show4 {
+    width: 5%;
+    position: absolute;
+    top: 44%;
+    left: 76%;
+}
+.slider5 {
+    width: 25%;
+    position: absolute;
+    top: 44%;
+    left: 80%;
+}
+#show5 {
+    width: 5%;
+    position: absolute;
+    top: 44%;
+    left: 96%;
+}
+#p1 {
+    width: 5%;
+    position: absolute;
+    top: 8%;
+    left: 5%;
+}
+#p2 {
+    width: 5%;
+    position: absolute;
+    top: 7.2%;
+    left: 9.65%;
+}
+#p3 {
+    width: 5%;
+    position: absolute;
+    top: 88.5%;
+    left: 32.35%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p4 {
+    width: 5%;
+    position: absolute;
+    top: 88.5%;
+    left: 52.37%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p5 {
+    width: 5%;
+    position: absolute;
+    top: 88.5%;
+    left: 72.35%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p6 {
+    width: 5%;
+    position: absolute;
+    top: 88.5%;
+    left: 92.35%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p7 {
+    width: 5%;
+    position: absolute;
+    top: 88.5%;
+    left: 12.35%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p8 {
+    width: 10%;
+    position: absolute;
+    top: 94%;
+    left: 30.55%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p9 {
+    width: 10%;
+    position: absolute;
+    top: 94%;
+    left: 50.57%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p10 {
+    width: 10%;
+    position: absolute;
+    top: 94%;
+    left: 70.55%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p11 {
+    width: 15%;
+    position: absolute;
+    top: 94%;
+    left: 89%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#p12 {
+    width: 5%;
+    position: absolute;
+    top: 94%;
+    left: 10.55%;
+    font-size: 12px;
+    font-weight: bold;
+}
+#initial{
+    width: 5%;
+    position: absolute;
+    top: 100%;
+    left: 9.0%;
+    font-size: 12px;
+    font-weight: bold;
+    height: 3px;
+}
+.b { 
+    position: relative;
+    padding: 10px;
+    margin-top:20px;
+    margin-bottom:30px;
+    width: 100%;
+    height:300px;
+}
+
+#buttonvier {
+    -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+    background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+    background-color:#b7bac2;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #7c7f87;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    padding:5px 16px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #1c2847;
+  }
+
+#buttonvier:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #buttonvier:active {
+  }
+
+
+
+  </style>
+{% endblock %}
+{% block content %}
+<div class="d">
+    <p align="justify">Nun bitten wir Sie noch um zwei Angaben zu der Dekodierungsaufgabe, die Sie im Folgenden bearbeiten werden. Die untere Angabe betrifft Ihre Motivation die Dekodierungsaufgabe mit positiven Umweltauswirkungen zu bearbeiten. Bitte geben Sie durch das klicken in die blauen Leisten und das verstellen der Schieberegler an, wie hoch Ihre momentane Motivation ist (linker blauer Balken). Zudem bitten wir Sie vorherzusagen, wie sich ihre Motivation im Verlauf der Bearbeitung entwickeln wird. Geben Sie bitte eine Einschätzung für die Bearbeitung nach 120 Sekunden, 240 Sekunden, 360 Sekunden und 480 Sekunden an, indem Sie die Schieberegler entsprechend anpassen. Ein Wert von 100% entspricht der höchstmöglichen Motivation. Ein Wert von 0% bedeutet, dass keinerlei Motivation vorhanden ist.
+    </p>
+</div>
+<div class=b width="80%" height="300px">
+  <img align="right" width="91%" height="270px"  src="{% static "pebs/moti1.png" %}" />
+
+                <input type="range" min="1" max="100" value="50" class="slider1" id="slider1"  onchange="updateTextInput1(this.value);" onclick="showhide1()">
+                <span id="show1"></span>
+                <input class="slider2" type="range"  min="0" max="100" step="1" id="slider2" onchange="updateTextInput2(this.value);" class="slider2" onclick="showhide2()"> 
+                <span id="show2"></span>
+                <input class="slider3" type="range"  min="0" max="100" step="1" id="slider3" onchange="updateTextInput3(this.value);"class="slider3" onclick="showhide3()">
+                <span id="show3"></span>
+                <input class="slider4" type="range"  min="0" max="100" step="1" id="slider4" onchange="updateTextInput4(this.value);"class="slider4" onclick="showhide4()">
+                <span id="show4"></span>
+                <input class="slider5" type="range"  min="0" max="100" step="1" id="slider5" onchange="updateTextInput5(this.value);"class="slider5" onclick="showhide5()">
+                <span id="show5"></span>
+                <p id="p1"><strong>100%</strong></p>
+                <p id="p2"><strong>—</strong></p>
+                <p id="p3">|</p>
+                <p id="p4">|</p>
+                <p id="p5">|</p>
+                <p id="p6">|</p>
+                <p id="p7">|</p>
+                <p id="p12">0 Sek.</p>
+                <p id="p8">120 Sek.</p>
+                <p id="p9">240 Sek.</p>
+                <p id="p10">360 Sek.</p>
+                <p id="p11">480 Sek. (Ende)</p>
+                <p id="initial" style="vertical-align: center;">Momentane Motivation</p>
+                
+  </div>
+
+  <p>&nbsp;</p>
+  <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+            <tr>
+            <td style="text-align: right;">
+{{ form.mot1.errors }}
+{{ form.mot2.errors }}
+{{ form.mot3.errors }}
+{{ form.mot4.errors }}
+{{ form.mot5.errors }}
+  <div id='buttonvier' onclick="shownow()">Falls Slider nicht bewegbar, bitte hier klicken</div>
+    <div id="hideit">
+    <strong>Manuell einstellen:</strong><br>
+    <table class="centerTable" align="right" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+  <td>
+  Momentane Motivation:
+</td>
+<td>
+  <input name="mot1"  type="text" id="textInput1" value="" size="1" style="text-align:center;"></td>
+</tr>
+<tr>
+  <td>
+  nach 120 Sek.:
+   </td>
+  <td>
+  <input name="mot2"  type="text" id="textInput2" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+  nach 240 Sek.:
+   </td>
+  <td>
+  <input name="mot3"  type="text" id="textInput3" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+  nach 360 Sek.:
+   </td>
+  <td>
+  <input name="mot4"  type="text" id="textInput4" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+  nach 480 Sek. (Ende):
+   </td>
+  <td>
+  <input name="mot5"  type="text" id="textInput5" value="" size="1" style="text-align:center;">
+</td>
+  </tr>
+  </thead>
+</table>
+</div>
+</td>
+</tr>
+</thead>
+</table>
+<br>
+<br>
+<button id="button1" class="answer btn btn-success"  >Weiter</button>
+{% endblock %}

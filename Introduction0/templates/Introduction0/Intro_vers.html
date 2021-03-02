@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Willkommen
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p>In der Studie nehmen Sie an einer von zwei Modifikationen einer Dekodierungsaufgabe teil. In Teil 2 wird zufällig entschieden, welche Modifikation Sie durchführen werden. Im folgenden wird Ihnen die Modifikation "Mengenauswahl" vorgestellt. Die andere Modifikation wird Ihnen in einer Woche vorgestellt. Beide Modifikationen haben gemeinsam, dass Sie durch das Bearbeiten der Dekodierungsaufgaben zum Wohlergehen der Umwelt beitragen können.
+</div>
+<div class=b>
+<strong>Mengenauswahl</strong>
+<p align="justify">Sie müssen entscheiden, wie viele Dekodierungsaufgaben Sie gerne in Teil 2 und 3 bearbeiten möchten. Diese Entscheidung werden Sie treffen, sobald Sie sich mit der Aufgabe vertraut gemacht haben.</p>
+</div>
+<div class=c>
+Die nächsten Schritte sehen wie folgt aus:
+<ul>
+    <li>Erläuterung der Dekodierungsaufgabe</li>
+    <li>Zwei Testrunden der Dekodierungsaufgabe</li>
+    <li>Erläuterung der Durchführungsmodifikation "Mengenauswahl"</li>
+    <li>Entscheidungen bezüglich der Modifikation "Mengenauswahl"</li>
+</ul>
+</div>
+
+    {% next_button %}
+
+{% endblock %}

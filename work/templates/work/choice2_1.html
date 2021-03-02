@@ -1,0 +1,430 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Entscheidung
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+
+.a{
+        padding-top: 20px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+</style>
+  </style>
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" type="text/javascript"> 
+document.getElementById("addit").style.display="none";
+      function show1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+  document.getElementById("addit1").style.display="none";
+      function show2()
+    {
+        var table = document.getElementById("addit1");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide2()
+    {
+        var table = document.getElementById("addit1");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+</script>
+
+{% endblock %}
+
+{% block content %}
+{% if wtoday == 30 %}
+<input type="hidden" label="" name="devup1" value="2" required/>
+<input type="hidden" label="" name="devup2" value="2" required/>
+<input type="hidden" label="" name="devup3" value="2" required/>
+<input type="hidden" label="" name="devup4" value="2" required/>
+<input type="hidden" label="" name="devup5" value="2" required/>
+<input type="hidden" label="" name="devup6" value="2" required/>
+<input type="hidden" label="" name="devup7" value="2" required/>
+<input type="hidden" label="" name="devup8" value="2" required/>
+
+<div class=a>
+    <p>Bitte entscheiden Sie sich, wie viel 
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          <tr class=border>
+            <td valign="center" colspan=2 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ; border-right: 1px solid;">Gewählte Aufgabenaufteilung</td>
+            <td valign="center" colspan=3 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ;">Alternative Aufgabenaufteilung</td>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="devdown1" value="1" required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="devdown1" value="2" required/></td>
+            <td valign="center" align="center" width="35%">{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" width="28%">+ 0€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown2" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown2" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.05€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown3" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown3" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown4" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown4" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.25€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown5" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown5" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.5€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown6" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown6" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.75€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;"><input type="radio" label="" name="devdown7" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown7" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;"><input type="radio" onclick="show2()" label="" name="devdown8" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" onclick="hide2()" label="" name="devdown8" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 2€ zusätzlich</td>
+          </tr> 
+          </tr>
+            <tr id=addit1>
+            <td valign="center" colspan=5 align="left" >Anderer Betrag zu dem Sie bereit wären die Aufteilung zu ändern:<input type="text" name="alter2" /></td>           
+          </tr>        
+        </thead>
+    </table>
+
+</div>
+
+
+
+{% elif wweek == 30 %}
+<input type="hidden" label="" name="devdown1" value="2" required/>
+<input type="hidden" label="" name="devdown2" value="2" required/>
+<input type="hidden" label="" name="devdown3" value="2" required/>
+<input type="hidden" label="" name="devdown4" value="2" required/>
+<input type="hidden" label="" name="devdown5" value="2" required/>
+<input type="hidden" label="" name="devdown6" value="2" required/>
+<input type="hidden" label="" name="devdown7" value="2" required/>
+<input type="hidden" label="" name="devdown8" value="2" required/>
+<div class=a>
+    <p>Bitte entscheiden Sie sich, für jeweils eine Option:
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          <tr class=border>
+            <td valign="center" colspan=2 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid; border-right: 1px solid;">Gewählte Aufgabenaufteilung</td>
+            <td valign="center" colspan=3 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ;">Alternative Aufgabenaufteilung</td>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="devup1" value="1" required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="devup1" value="2" required/></td>
+            <td valign="center" align="center" width="35%">{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" width="18%">+ 0€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devup2" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup2" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.05€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup3" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup3" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup4" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup4" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.25€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup5" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup5" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.5€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup6" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup6" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.75€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup7" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup7" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;"><input type="radio" onclick="show1()" label="" name="devup8" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" onclick="hide1()" label="" name="devup8" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 2€ zusätzlich</td>
+          </tr> 
+          </tr>
+            <tr id=addit>
+            <td valign="center" colspan=5 align="left" >Anderer Betrag zu dem Sie bereit wären die Aufteilung zu ändern:<input type="text" name="alter1" /></td>           
+          </tr>
+        </thead>
+    </table>
+
+{% else %}
+<div class=a>
+    <p>Bitte entscheiden Sie sich, für jeweils eine Option:
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          <tr class=border>
+            <td valign="center" colspan=2 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid; border-right: 1px solid;">Gewählte Aufgabenaufteilung</td>
+            <td valign="center" colspan=3 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ;">Alternative Aufgabenaufteilung</td>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="devup1" value="1" required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="devup1" value="2" required/></td>
+            <td valign="center" align="center" width="35%">{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" width="18%">+ 0€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devup2" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup2" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.05€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup3" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup3" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup4" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup4" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.25€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup5" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup5" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.5€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup6" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup6" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.75€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" name="devup7" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devup7" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;"><input type="radio" onclick="show1()" label="" name="devup8" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" onclick="hide1()" label="" name="devup8" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodayup }} heute und {{wweekdown}} in einer Woche</td>
+            <td valign="center" align="left" >+ 2€ zusätzlich</td>
+          </tr> 
+          </tr>
+            <tr id=addit>
+            <td valign="center" colspan=5 align="left" >Anderer Betrag zu dem Sie bereit wären die Aufteilung zu ändern:<input type="text" name="alter1" /></td>           
+          </tr>
+        </thead>
+    </table>
+
+</div>
+<div class=a>
+    <p>Bitte entscheiden Sie sich, wie viel 
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          <tr class=border>
+            <td valign="center" colspan=2 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ; border-right: 1px solid;">Gewählte Aufgabenaufteilung</td>
+            <td valign="center" colspan=3 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ;">Alternative Aufgabenaufteilung</td>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="devdown1" value="1" required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="devdown1" value="2" required/></td>
+            <td valign="center" align="center" width="35%">{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" width="28%">+ 0€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown2" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown2" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.05€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown3" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown3" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown4" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown4" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.25€ zusätzlich</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown5" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown5" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.5€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" name="devdown6" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown6" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 0.75€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;"><input type="radio" label="" name="devdown7" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" name="devdown7" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 1€ zusätzlich</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" >{{ wtoday }} heute und {{wweek}} in einer Woche</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;"><input type="radio" onclick="show2()" label="" name="devdown8" value="1" required/></td>
+            <td valign="center" align="center" ><input type="radio" onclick="hide2()" label="" name="devdown8" value="2" required/></td>
+            <td valign="center" align="center" >{{ wtodaydown }} heute und {{wweekup}} in einer Woche</td>
+            <td valign="center" align="left" >+ 2€ zusätzlich</td>
+          </tr> 
+          </tr>
+            <tr id=addit1>
+            <td valign="center" colspan=5 align="left" >Anderer Betrag zu dem Sie bereit wären die Aufteilung zu ändern:<input type="text" name="alter2" /></td>           
+          </tr>        
+        </thead>
+    </table>
+
+</div>
+{% endif %}
+<div class=a>
+<p align="justify">Mit treffen der letzten Entscheidung ist auch der Teil zu der Durchführungsmodifikation "Aufgabenaufteilung" abgeschlossen. Auf der nächsten Seite werden wir ihnen mitteilen, ob Sie die Modifikation "Umweltaufgabe" oder die Modifikation "Arbeitsaufteilung" bearbeiten werden.</p></div>
+
+<p>&nbsp;</p>
+    <button class="answer btn btn-success" onclick="calc1()" >Weiter</button>
+{% endblock %}
+
+

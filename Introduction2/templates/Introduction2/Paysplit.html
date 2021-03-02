@@ -1,0 +1,159 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Durchführungsversion der Aufgabe
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+  input[type='radio'] { transform: scale(1.3); }
+.a{
+        padding-top: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 5px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" type="text/javascript"> 
+document.getElementById("addit").style.display="none";
+      function show1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+</script>
+
+{% endblock %}
+
+{% block content %}
+	<div class=a>
+  <p align="justify">Zum Schluss des heutigen Teils bitten wir Sie noch zu entscheiden sich zwischen acht Auszahlungsalternativen zu entscheiden. In der Tabelle sehen Sie stets zwei verschiedene Auszahlungsvarianten. Wir bitten Sie sich in allen acht Reihen für jeweils eine der beiden Auszahlungsalternativen zu entscheiden.</p>
+  </div>
+	
+<div class=a> 
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          <tr class=border>
+            <td valign="center" colspan=2 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ; border-right: 1px solid;"><strong>Alternative 1</strong></td>
+            <td valign="center" colspan=3 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ;"><strong>Alternative 2</strong></td>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now1 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday1" value=15.75 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday1" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now2 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday2" value=15.5 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday2" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+            </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now1 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday" value=15.75 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now3 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday3" value=15.25 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday3" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now4 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday4" value=15 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday4" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now5 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday5" value=14.75 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday5" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now6 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday6" value=14.5 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday6" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now7 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday7" value=14.25 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday7" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now8 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday8" value=14 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday8" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now9 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" name="ptoday9" value=13.75 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" name="ptoday9" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now10 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" onclick="show1()" label="" name="ptoday10" value=13.5 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" onclick="hide1()" label="" name="ptoday10" value=21 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          
+          </tr>
+            <tr id=addit>
+            <td valign="center" colspan=5 align="left" >Anderer Betrag (ausgezahlt in einer Woche) zu dem Sie bereit wären heute auf 5€ zu verzichten und dafür nächste Woche 21€ ausgezahlt zu bekommen:<input type="text" name="alter3" /></td>           
+          </tr>        
+        </thead>
+    </table>
+
+</div>
+    <br>
+    <br>
+
+
+    {% next_button %}
+
+{% endblock %}

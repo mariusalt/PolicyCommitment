@@ -1,0 +1,1034 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Kontrollfragen
+{% endblock %}
+{% block styles %}
+  <style type="text/css">
+       input[type='radio'] { transform: scale(1.3); }
+  .page-header {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+  }
+  img.im1 {
+  max-width:110%;
+  max-height:110%;
+}
+img.im6 {
+  max-width:110%;
+  max-height:110%;
+}
+img.im7 {
+  max-width:110%;
+  max-height:110%;
+}
+.f{
+        padding-top: 40px ;
+        padding-bottom: 10px ;
+    }
+  .otree-title{
+    font-size: 22px;
+    padding-top: 80px;
+  }
+  .otree-timer{
+    position: absolute;
+      right: 20%;
+      width: 15%;
+      top:50px;
+      padding: 10px;
+  }
+  #cont{
+    padding-top: 50px ;
+    padding-bottom: 50px ;
+  }
+  .calc{
+    position: fixed;
+      right: 3%;
+      width: 15%;
+      top:60%;
+      padding: 10px;
+  }
+  .qs{
+    padding-top: 50px ;
+    padding-bottom: 50px ;
+  }
+  #button {
+  -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+  background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+  background-color:#b7bac2;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #7c7f87;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:5px 76px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #1c2847;
+  }
+  #button:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #button:active {
+  position:relative;
+  top:1px;
+  }
+   #id_submit_button {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #id_submit_button:hover {
+  background-color:#3c5ccf;
+  }
+  #id_submit_button:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  .errorlist
+    {
+        color: red;
+    }
+  </style>
+  <style media="screen">
+      .input-group {
+        max-width: 100px;
+      }
+ 
+    
+
+  </style>
+
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" type="text/javascript"> 
+ 
+  function calculate1(){
+        Value = document.getElementById("id_wrong").value;
+        console.log(Value++);
+        document.getElementById("id_wrong").value = Value;
+     }
+
+
+      function update(value){
+
+          document.getElementById("screen").value += value;
+
+      }
+  document.getElementById("wong").style.visibility="hidden"
+
+      function result(){
+
+          document.getElementById("screen").value = eval(document.getElementById("screen").value);
+
+      }
+
+       
+      
+
+
+      function del(){
+
+          document.getElementById("screen").value = '';
+
+      }
+
+      document.getElementById("cont").style.display="none";
+      function showhide()
+    {
+        var div = document.getElementById("cont");
+    if (div.style.display === "none") {
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+      }
+    } 
+
+
+    </script>
+{% endblock %}
+
+{% block content %}
+
+<!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/1.8/ref/templates/language/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+
+-->
+
+
+<div id='button' onclick="showhide()">Instruktionen</div>
+<div id="cont">
+<strong>{% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.nudge == 1 %}Version A{% elif participant.vars.mon == 1 %}Version A{% elif participant.vars.punish == 1 %}Version A{% else %}Version A{% endif %}</strong>
+{% if participant.vars.noinc == 1 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 1 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 1 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 1 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version A wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 2 %}Version B{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.punish == 2 %}Version B{% else %}Version B{% endif %}</strong>
+{% if participant.vars.noinc == 2 %}<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 2 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 2 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 2 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version B wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% endif %}
+
+
+
+
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 3 %}Version C{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.punish == 3 %}Version C{% else %}Version C{% endif %}</strong>
+{% if participant.vars.noinc == 3 %}<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 3 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 3 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 3 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version C wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% endif %}
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 4 %}Version D{% elif participant.vars.nudge == 4 %}Version D{% elif participant.vars.mon == 4 %}Version D{% elif participant.vars.punish == 4 %}Version D{% else %}Version D{% endif %}</strong>
+{% if participant.vars.noinc == 4 %}<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 4 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 4 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 4 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version D wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% endif %}
+
+<p>_________________________________________________________________________________________________________________________________________</p>
+
+<div id='button' class='a' onclick="showhide()">Schließen</div>
+<p>&nbsp;</p>
+</div>
+  
+<div class="qs">
+<p>Bitte beantworten Sie die folgenden Kontrollfragen. Sie dienen Ihrem Verst&auml;ndnis der kommenden Entscheidungssituation. Sie können als Hilfestellung auf "Instruktionen" klicken, um nochmals die ausführliche Erklärung nachzulesen. Falls Sie Fragen haben, melden Sie sich bitte.</p>
+<p>&nbsp;</p>
+<p>1. Bitte ordnen Sie die nummerierten Bilder den jeweiligen Verisonen der Aufgabe zu</p>
+  
+
+   <table class="centerTable" style="border-collapse: collapse; border-style: hidden; padding-right: 10px;"  width = "100%">
+         <thead>
+            <tr>
+            <td valign="center" align="center"><strong>1</strong></td>
+            <td valign="center" align="center"><strong>2</strong></td>            
+            <td valign="center" align="center"><strong>3</strong></td>
+            <td valign="center" align="center"><strong>4</strong></td>              
+          </tr>
+            <tr>
+            <td valign="center" align="center"><img class=im1 src="{% static "pebs/monnewcut.png" %}" /></td>
+            <td valign="center" align="center"><img class=im1 src="{% static "pebs/punnew1cut.png" %}" /></td>
+            <td valign="bottom" align="center"><img class=im1 src="{% static "pebs/Graphforce.png" %}" /></td>  
+            <td valign="center" align="center"><img class=im1 src="{% static "pebs/nc.png" %}" /></td>         
+          </tr>
+            </thead>
+    </table> 
+    <br>
+    <br>
+    <br>
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden; padding-right: 10px;"  width = "100%"> 
+          <tr>
+            <td valign="center" align="center">Version A</td>
+            <td valign="center" align="center">Version B</td>            
+            <td valign="center" align="center">Versoin C</td>
+            <td valign="center" align="center">Version D</td>
+          </tr>
+          <tr>
+            <td valign="center" align="center">{% if participant.vars.noinc == 1 %}{{ form.Q1_1 }}{% elif participant.vars.nudge == 1 %}{{ form.Q1_2 }}{% elif participant.vars.mon == 1 %}{{ form.Q1_3 }}{% elif participant.vars.punish == 1 %}{{ form.Q1_4 }}{% endif %}</td>
+            <td valign="center" align="center">{% if participant.vars.noinc == 2 %}{{ form.Q1_1 }}{% elif participant.vars.nudge == 2 %}{{ form.Q1_2 }}{% elif participant.vars.mon == 2 %}{{ form.Q1_3 }}{% elif participant.vars.punish == 2 %}{{ form.Q1_4 }}{% endif %}</td>            
+            <td valign="center" align="center">{% if participant.vars.noinc == 3 %}{{ form.Q1_1 }}{% elif participant.vars.nudge == 3 %}{{ form.Q1_2 }}{% elif participant.vars.mon == 3 %}{{ form.Q1_3 }}{% elif participant.vars.punish == 3 %}{{ form.Q1_4 }}{% endif %}</td>
+            <td valign="center" align="center">{% if participant.vars.noinc == 4 %}{{ form.Q1_1 }}{% elif participant.vars.nudge == 4 %}{{ form.Q1_2 }}{% elif participant.vars.mon == 4 %}{{ form.Q1_3 }}{% elif participant.vars.punish == 4 %}{{ form.Q1_4 }}{% endif %}</td>
+          </tr>
+        </thead>
+    </table>  
+   {{ form.errors }}
+
+
+   <p>&nbsp;</p>
+<p>2. Wie viele gelöste Aufgaben werden benötigt, damit eine Spende generiert wird, die die Finanzierung eines Baumes in dem Aufforstungsprojekt in Nepal finanziert?</p>           
+       {% formfield player.Q2 label="" %}                                     
+  
+      {{ form.Q2.errors }}
+                 <br>
+
+   <p>&nbsp;</p>
+<p>3. Womit wird Ihre Performance in der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% endif %} verglichen?</p>  
+{% formfield player.Q3 label="" %}            
+                                              
+
+      {{ form.Q3.errors }}
+                 <br>
+
+   <p>&nbsp;</p>
+<p>4. Wie hoch ist der Bonus pro gelöster Aufgabe in der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% endif %}?</p>           
+{% formfield player.Q4 label="" %}   
+      {{ form.Q4.errors }}
+                 <br>
+
+   <p>&nbsp;</p>
+<p>5. Wie hoch ist die Teilnahmevergütung in der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% endif %}?</p>           
+                                              
+{% formfield player.Q5 label="" %}   
+      {{ form.Q5.errors }}
+                 <br>
+
+   <p>&nbsp;</p>
+<p>6. Wie viele Aufgaben müssen gelöst werden, um in der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% endif %} nicht von einer Reduzierung der Teilnahmevergütung betroffen zu sein?</p>           
+{% formfield player.Q6 label="" %}   
+      {{ form.Q6.errors }}
+                 <br>
+
+   <p>&nbsp;</p>
+<p>7. Wie hoch ist Ihre Teilnahmevergütung in {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% endif %} und wie viel können Sie maximal zusätzlich durch das Bearbetien der Dekodierungsaufgaben verdienen?</p>           
+        {% formfield player.Q7 label="" %}                                         
+   
+      {{ form.Q7.errors }}
+                 <br>
+  <p>&nbsp;</p>
+<p>8. Zu welchem Zeitpunkt werden Sie die Dekodierungsaufgaben mit positiven Umweltauswirkungen bearbeiten?</p>           
+          <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          {% if participant.vars.time == "immi" %}
+            <tr>
+            <td valign="center" align="center" width="4%"><p><input  type="radio"  name="Q8" value="1" required/></p></td>
+            <td valign="center" align="left" width="98%"><p>Heute, nach der Angabe meiner Präferenzen bezüglich der Versionen</p> </td>
+            </tr>
+            <tr>
+            <td valign="center" align="center" ><p><input type="radio"  name="Q8" value="2" required/></p></td>
+            <td valign="center" align="left" ><p>Nächste Woche in Teil 2</p> </td>
+            </tr>
+            {% else %}
+            <tr>
+            <td valign="center" align="center" width="4%"><p><input  type="radio"  name="Q8" value="2" required/></p></td>
+            <td valign="center" align="left" width="98%"><p>Heute, nach der Angabe meiner Präferenzen bezüglich der Versionen</p> </td>
+            </tr>
+            <tr>
+            <td valign="center" align="center" ><p><input type="radio"  name="Q8" value="1" required/></p></td>
+            <td valign="center" align="left" ><p>Nächste Woche in Teil 2</p> </td>
+            </tr>
+            {% endif %}
+        </thead>
+    </table>                                       
+   
+      {{ form.Q8.errors }}
+                 <br>  
+</div>
+
+<button id="id_submit_button" onclick="calculate1()" class="otree-btn-next btn btn-primary next-button otree-next-button">Antworten</button>
+
+<div id=wong>
+{% formfield player.wrong label="" %}  
+</div>
+{% endblock %}

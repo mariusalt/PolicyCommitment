@@ -1,0 +1,204 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Spendenoption
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript">
+var wag = document.getElementById("c1").value;
+var puni = document.getElementById("c2").value;
+document.getElementById('c3').innerHTML = wag/100 + "€";
+document.getElementById('c4').innerHTML = "-" + puni/100 + "€";
+
+</script>
+  {% endblock %}
+{% block styles %}
+  <style type="text/css">
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+.a{
+        padding-top: 10px ;
+        padding-bottom: 2px ;
+    }
+.b{
+        padding-top: 1px ;
+    }
+.c{
+        padding-bottom: 30px ;
+    }
+img.im1 {
+        max-width:180%;
+        max-height:180%;
+}
+img.im2 {
+        max-width:30%;
+        max-height:30%;
+}
+.input-group{
+        padding-top: 3px ;
+        padding-bottom: 5px ;
+    }
+
+tr.border td {
+  border-top: thin solid black;
+  border-bottom: thin solid black;
+}
+
+tr.border td:first-child {
+  border-left: thin solid black;
+}
+
+tr.border td:last-child {
+  border-right: thin solid black;
+}
+th, td {
+  padding: 10px;
+}
+
+
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+#button {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #button:hover {
+  background-color:#3c5ccf;
+  }
+  #button:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  #buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=a>
+<p>Wie letzte Woche angekündigt, haben Sie nun die Möglichkeit einen gewissen Prozentsatz Ihrer Vergütung an eine der drei unten genannten Organisationen zu spenden. Letzte Woche haben Sie bereits eine Entscheidung diesbezüglich getroffen. Im Folgenden können Sie diese Entscheidung nochmals zu ändern. Bei jeder Spendenoption ist jeweils Ihre Entscheidung aus letzter Woche angegeben.</p> 
+</div>
+
+<div class=b>
+Falls Sie diese Spendengelegenheit wahrnehmen wollen, tragen Sie bitte unten ein, welchen Betrag aus Ihrer Teilnahmevergütung Sie jeweils spenden möchten. Es stehen folgende Organisationen zur Auswahl.</p>
+</div>
+
+<div class=c>
+<table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr class="border">
+                <td width="70%" align="left" height="70px"><p align="justify">Der WWF (World Wide Fund For Nature) wurde 1961 gegründet und ist eine der größten internationalen Natur- und Umweltschutzorganisationen. Der WWF setzt sich ein für den Erhalt der biologischen Vielfalt der Erde, die nachhaltige Nutzung natürlicher Ressourcen und die Eindämmung von Umweltverschmutzung und schädlichem Konsumverhalten.</p></td>
+                <td width="30%" align="center" height="70px"><img class=im1 src="{% static "pebs/wwf1.png" %}" /></td>
+            </tr>
+            <tr class="border">
+                <td width="70%" align="left" height="70px"><p align="justify">Um dem Plastikmüllproblem in Nord- und Ostsee etwas entgegenzusetzen, hat der NABU im Jahr 2010 das Projekt „Meere ohne Plastik“ gestartet. Darin erarbeitet der NABU Informationsmaterialien für und mit Fischern und Wassersportlern. Außerdem werden Reinigungsaktionen an Stränden und Flussufern organisiert und das Umweltmonitoring an der Nord- und Ostseeküste wird aktiv unterstützt. </p></td>
+                <td width="30%" align="center" height="70px"><img class=im1 src="{% static "pebs/mop1.png" %}" /></td>
+            </tr>
+            <tr class="border">
+                <td width="70%" align="left" height="70px"><p align="justify">Die Mannheimer Tafel beugt Lebensmittelverschwendung vor, indem alle qualitativ einwandfreien Nahrungsmittel, die im Wirtschaftsprozess nicht mehr verwendet werden können, an Bedürftige verteilt werden. Die Tafeln setzen sich gegen das Wegwerfen von Lebensmitteln ein und schonen somit Umweltressourcen. </p></td>
+                <td width="30%" align="center" height="70px"><img class=im1 src="{% static "pebs/tafel1.png" %}" /></td>
+            </tr>
+        </tbody>
+</table>
+</div>
+<p>Bitte beachten Sie, dass Ihre Angaben auf eine Stelle nach dem Komma gerundet werden.</p>
+<table border=0  width="66%" >
+        <tbody>
+            <tr>
+               <td width="40%"><p><strong>Spende an<br>WWF:</strong></p></td>
+               <td align="right">{{ form.spendeWWF }}</td>
+               <td align="left"><span class="input-group-addon">% Ihrer Gesamtvergütung</span></td>
+            </tr>
+            <tr>
+              <td colspan=3>Entscheidung aus vorheriger Woche: {{ participant.vars.WWF }}%<td>
+            </tr>
+            <tr>  
+               <td ><p><strong>Spende an<br>Meere ohne Plastik, NABU:</strong></p></td>
+               <td align="right">{{ form.spendeMeerPlastik }}</td>
+               <td align="left"><span class="input-group-addon">% Ihrer Gesamtvergütung</span></td>
+            </tr>
+            <tr>
+              <td colspan=3>Entscheidung aus vorheriger Woche: {{ participant.vars.Meer }}%<td>
+            </tr>
+            <tr>  
+               <td ><p><strong>Spende an<br>Mannheimer Tafel:</strong></p></td>
+               <td align="right">{{ form.spendeMannTafel }}</td>
+               <td align="left"><span class="input-group-addon">% Ihrer Gesamtvergütung</span></td>
+            </tr>
+            <tr>
+              <td colspan=3>Entscheidung aus vorheriger Woche: {{ participant.vars.Mann }}%<td>
+            </tr>
+            {{ form.errors }}
+        </tbody>
+    </table>
+    <br>
+<p>&nbsp;</p>
+    <button id="buttonfin" class="answer btn btn-success" >Weiter</button>
+
+{% endblock %}
+
+

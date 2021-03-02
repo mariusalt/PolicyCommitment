@@ -1,0 +1,146 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    
+{% endblock %}
+{% block styles %}
+
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:70%;
+  max-height:70%;
+}
+img.im2 {
+  max-width:15%;
+  max-height:15%;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+#buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=a>
+<p align="justify"><strong>Es wurde zufälig ausgewählt, dass Sie die Zusatzaufgabe bearbeiten werden.</strong><br><br> Folgende Ihrer Entscheidungen wird für Sie bei der Bearbeitung relevant:<br>
+<div class="cont">
+<table border=1 class="centerTable" width = "70%">
+         <tbody>
+            <tr>
+              <td width="(100/x)%" align="center"><b>Relevante Entscheidungen</b></td>
+              <td width="(100/x)%" align="center"><b>Zu bearbeitende Aufgaben</b></td>   
+              <td width="(100/x)%" align="center"><b>Entlohnung pro korr. Aufgabe</b></td>
+            </tr>
+            <tr>
+              <td width="(100/x)%" align="center" height="50px">{% if participant.vars.week == 0 %}Entscheidungen Termin 1{% else %}Entscheidungen Termin 2{% endif %}</td>
+              <td width="(100/x)%" align="center" height="50px"> {{ participant.vars.workload }}</td>
+              <td width="(100/x)%" align="center" height="50px"> {{ participant.vars.paywork }}€</td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+<br>
+<br>
+      <table border=0 class="centerTable" width = "70%">
+         <tbody>
+            <tr>
+              <td rowspan=2 width="30%" style="vertical-align: top;text-align: left;"><b>Zu bearbeitende Modifikation:</b></td>
+              <td width="40%" style="vertical-align: top;text-align: left;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{{ participant.vars.selmodi }}</b></td>
+            </tr>
+            <tr>   
+              <td  style="vertical-align: top;text-align: left;">{% if participant.vars.selmotr == "noincm" %}<img class=im1 src="{% static "pebs/noinc_work.png" %}" />
+      {% elif participant.vars.selmotr == "nudgem" %}<img style="vertical-align:bottom;" class=im12 src="{% static "pebs/nudge_work1.png" %}" />
+      {% elif participant.vars.selmotr == "monm" %}<img class=im1 src="{% static "pebs/mon_work1.png" %}" />
+      {% elif participant.vars.selmotr == "punishm" %}<img class=im1 src="{% static "pebs/punish_work.png" %}" />
+      {% endif %} </td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+     
+</div>
+
+    <button id="buttonfin" style="margin-top:10px;" class="answer btn btn-success" >Weiter zur Bearbeitung</button>
+{% endblock %}
+
+
+
+

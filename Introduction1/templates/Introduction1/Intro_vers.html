@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ablauf
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-bottom: 20px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p>In dieser Studie haben sie die Möglichkeit durch das Lösen von Dekodierungsaufgaben zum Wohlergehen der Umwelt beizutragen. Das erfolgreiche Bearbeiten von Aufgaben hat die Pflanzung von Bäumen in einem Aufforstungsprojekt zur Folge. Zudem werden Ihnen vier Bearbeitungsversionen der Umweltaufgabe vorgestellt, zwischen denen Sie sich entscheiden sollen.{% if participant.vars.time == "delay" %} Beachten Sie, dass die Bearbeitung der Dekodierungsaufgaben mit positivem Umweltbeitrag erst nächste Woche erfolgen wird. Dennoch bitten wir Sie bereits heute diesbezüglich Entscheidungen zu treffen.{% endif %}</p>
+</div>
+<div class=c>
+Die nächsten Schritte sehen wie folgt aus:
+<ul>
+    <li>Erläuterung der Dekodierungsaufgabe</li>
+    <li>Zwei Testrunden der Dekodierungsaufgabe</li>
+    <li>Erläuterung des Umweltbeitrags</li>
+    <li>Entscheidung bezüglich der zu bearbeitenden Version der Dekodierungsaufgabe</li>
+    {% if participant.vars.time == "immi" %}
+    <li>Bearbeitung der Dekodierungsaufgaben</li>
+    {% endif %}
+</ul>
+</div>
+
+    {% next_button %}
+
+{% endblock %}

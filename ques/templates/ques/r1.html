@@ -1,0 +1,2457 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Fragebogen
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 5px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+  </style>
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" type="text/javascript">  
+  document.getElementById("addit").style.display="none";
+      function show1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide1()
+    {	
+    	document.getElementById('ad1').checked = false;
+    	document.getElementById('ad2').checked = false;
+    	document.getElementById('ada11').checked = false;
+    	document.getElementById('ada21').checked = false;
+    	document.getElementById('ad3').checked = false;
+    	document.getElementById('ad31').checked = false;
+    	document.getElementById('ad4').checked = false;
+    	document.getElementById('ad41').checked = false;
+    	document.getElementById('ad5').checked = false;
+    	document.getElementById('ad51').checked = false;
+    	document.getElementById('ad6').checked = false;
+    	document.getElementById('ad61').checked = false;
+    	document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+    	document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+  
+    
+    document.getElementById("addit2").style.display="none";
+      function show2()
+    {
+        var table = document.getElementById("addit2");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide2()
+    {
+    	document.getElementById('ad1').checked = false;
+    	document.getElementById('ad2').checked = false;
+    	document.getElementById('ada11').checked = false;
+    	document.getElementById('ada21').checked = false;
+    	document.getElementById('ad3').checked = false;
+    	document.getElementById('ad31').checked = false;
+    	document.getElementById('ad4').checked = false;
+    	document.getElementById('ad41').checked = false;
+    	document.getElementById('ad5').checked = false;
+    	document.getElementById('ad51').checked = false;
+    	document.getElementById('ad6').checked = false;
+    	document.getElementById('ad61').checked = false;
+    	document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+    	document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit2");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit3").style.display="none";
+      function show3()
+    {
+        var table = document.getElementById("addit3");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide3()
+    {
+        document.getElementById('ad3').checked = false;
+    	document.getElementById('ad31').checked = false;
+    	document.getElementById('ad4').checked = false;
+    	document.getElementById('ad41').checked = false;
+    	document.getElementById('ad5').checked = false;
+    	document.getElementById('ad51').checked = false;
+    	document.getElementById('ad6').checked = false;
+    	document.getElementById('ad61').checked = false;
+    	document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+    	document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit3");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit4").style.display="none";
+      function show4()
+    {
+        var table = document.getElementById("addit4");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide4()
+    {
+        document.getElementById('ad3').checked = false;
+    	document.getElementById('ad31').checked = false;
+    	document.getElementById('ad4').checked = false;
+    	document.getElementById('ad41').checked = false;
+    	document.getElementById('ad5').checked = false;
+    	document.getElementById('ad51').checked = false;
+    	document.getElementById('ad6').checked = false;
+    	document.getElementById('ad61').checked = false;
+    	document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+    	document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit4");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit5").style.display="none";
+      function show5()
+    {
+        var table = document.getElementById("addit5");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide5()
+    {
+        document.getElementById('ad3').checked = false;
+    	document.getElementById('ad31').checked = false;
+    	document.getElementById('ad4').checked = false;
+    	document.getElementById('ad41').checked = false;
+    	document.getElementById('ad5').checked = false;
+    	document.getElementById('ad51').checked = false;
+    	document.getElementById('ad6').checked = false;
+    	document.getElementById('ad61').checked = false;
+    	document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+    	document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit5");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit6").style.display="none";
+      function show6()
+    {
+        var table = document.getElementById("addit6");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide6()
+    {
+        document.getElementById('ad3').checked = false;
+    	document.getElementById('ad31').checked = false;
+    	document.getElementById('ad4').checked = false;
+    	document.getElementById('ad41').checked = false;
+    	document.getElementById('ad5').checked = false;
+    	document.getElementById('ad51').checked = false;
+    	document.getElementById('ad6').checked = false;
+    	document.getElementById('ad61').checked = false;
+    	document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+    	document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit6");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+    document.getElementById("addit7").style.display="none";
+      function show7()
+    {
+        var table = document.getElementById("addit7");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide7()
+    {
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit7");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit8").style.display="none";
+      function show8()
+    {
+        var table = document.getElementById("addit8");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide8()
+    {
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit8");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit9").style.display="none";
+      function show9()
+    {
+        var table = document.getElementById("addit9");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide9()
+    {
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit9");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+    document.getElementById("addit10").style.display="none";
+      function show10()
+    {
+        var table = document.getElementById("addit10");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide10()
+    {
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit10");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit11").style.display="none";
+      function show11()
+    {
+        var table = document.getElementById("addit11");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide11()
+    {
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit11");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit12").style.display="none";
+      function show12()
+    {
+        var table = document.getElementById("addit12");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide12()
+    {
+        
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit12");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    document.getElementById("addit13").style.display="none";
+      function show13()
+    {
+        var table = document.getElementById("addit13");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide13()
+    {
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit13");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit14").style.display="none";
+      function show14()
+    {
+        var table = document.getElementById("addit14");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide14()
+    {
+        document.getElementById('ad7').checked = false;
+    	document.getElementById('ad71').checked = false;
+    	document.getElementById('ad8').checked = false;
+    	document.getElementById('ad81').checked = false;
+    	document.getElementById('ad9').checked = false;
+    	document.getElementById('ad91').checked = false;
+    	document.getElementById('ad10').checked = false;
+    	document.getElementById('ad101').checked = false;
+    	document.getElementById('ad11').checked = false;
+    	document.getElementById('ad111').checked = false;
+    	document.getElementById('ad12').checked = false;
+    	document.getElementById('ad121').checked = false;
+    	document.getElementById('ad13').checked = false;
+    	document.getElementById('ad131').checked = false;
+    	document.getElementById('ad14').checked = false;
+    	document.getElementById('ad141').checked = false;
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit14");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+      document.getElementById("addit15").style.display="none";
+      function show15()
+    {
+        var table = document.getElementById("addit15");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide15()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit15");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit16").style.display="none";
+      function show16()
+    {
+        var table = document.getElementById("addit16");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide16()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit16");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit17").style.display="none";
+      function show17()
+    {
+        var table = document.getElementById("addit17");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide17()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit17");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit18").style.display="none";
+      function show18()
+    {
+        var table = document.getElementById("addit18");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide18()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit18");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit19").style.display="none";
+      function show19()
+    {
+        var table = document.getElementById("addit19");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide19()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit19");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit20").style.display="none";
+      function show20()
+    {
+        var table = document.getElementById("addit20");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide20()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit20");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+    document.getElementById("addit21").style.display="none";
+      function show21()
+    {
+        var table = document.getElementById("addit21");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide21()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit21");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit22").style.display="none";
+      function show22()
+    {
+        var table = document.getElementById("addit22");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide22()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit22");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit23").style.display="none";
+      function show23()
+    {
+        var table = document.getElementById("addit23");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide23()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit23");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+    document.getElementById("addit24").style.display="none";
+      function show24()
+    {
+        var table = document.getElementById("addit24");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide24()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit24");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit25").style.display="none";
+      function show25()
+    {
+        
+        var table = document.getElementById("addit25");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide25()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit25");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+    document.getElementById("addit26").style.display="none";
+      function show26()
+    {
+        var table = document.getElementById("addit26");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide26()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit26");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    document.getElementById("addit27").style.display="none";
+      function show27()
+    {
+        var table = document.getElementById("addit27");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide27()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit27");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit28").style.display="none";
+      function show28()
+    {
+        var table = document.getElementById("addit28");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide28()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit28");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    document.getElementById("addit29").style.display="none";
+      function show29()
+    {
+        var table = document.getElementById("addit29");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide29()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit29");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+      document.getElementById("addit30").style.display="none";
+      function show30()
+    {
+        var table = document.getElementById("addit30");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide30()
+    {
+        document.getElementById('ad15').checked = false;
+    	document.getElementById('ad151').checked = false;
+    	document.getElementById('ad16').checked = false;
+    	document.getElementById('ad161').checked = false;
+    	document.getElementById('ad17').checked = false;
+    	document.getElementById('ad171').checked = false;
+    	document.getElementById('ad18').checked = false;
+    	document.getElementById('ad181').checked = false;
+    	document.getElementById('ad19').checked = false;
+    	document.getElementById('ad191').checked = false;
+    	document.getElementById('ad20').checked = false;
+    	document.getElementById('ad201').checked = false;
+    	document.getElementById('ad21').checked = false;
+    	document.getElementById('ad211').checked = false;
+    	document.getElementById('ad22').checked = false;
+    	document.getElementById('ad221').checked = false;
+    	document.getElementById('ad23').checked = false;
+    	document.getElementById('ad231').checked = false;
+    	document.getElementById('ad24').checked = false;
+    	document.getElementById('ad241').checked = false;
+    	document.getElementById('ad25').checked = false;
+    	document.getElementById('ad251').checked = false;
+    	document.getElementById('ad26').checked = false;
+    	document.getElementById('ad261').checked = false;
+    	document.getElementById('ad27').checked = false;
+    	document.getElementById('ad271').checked = false;
+    	document.getElementById('ad28').checked = false;
+    	document.getElementById('ad281').checked = false;
+    	document.getElementById('ad29').checked = false;
+    	document.getElementById('ad291').checked = false;
+    	document.getElementById('ad30').checked = false;
+    	document.getElementById('ad301').checked = false;
+        var table = document.getElementById("addit30");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    </script>
+ {% endblock %} 
+
+{% block content %}
+<div class=a>
+<p align="justify">Bitte stellen Sie sich die folgende Situation vor: Sie haben die Wahl zwischen einer sicheren Zahlung eines bestimmten Geldbetrages oder einer Auslosung, bei der Sie die gleiche Chance auf 300 Euro oder gar nichts haben. Im Folgenden werden wir Ihnen fünf verschiedene Situationen hierzu vorstellen.</p>
+</div>
+<strong>1.</strong>
+<div class=b >
+	<p>Was würden Sie bevorzugen: eine Auslosung mit einer 50-prozentigen Chance, 300 Euro zu erhalten, und der gleichen 50-prozentigen Chance, nichts zu erhalten, oder den Betrag von 160 Euro als sichere Zahlung?</p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" onclick="show1(); hide2();hide3(); hide4(); hide5(); hide6();hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r1" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" onclick="show2(); hide1();hide3(); hide4(); hide5(); hide6();hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" name="r1" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+<br>
+<br>
+
+<strong>2.</strong>
+<div class=b id="addit">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 240 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad1" onclick="show3(); hide4(); hide5(); hide6();hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r2" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ada11" onclick="show4(); hide3(); hide5(); hide6();hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r2" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit2">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 80 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad2" onclick="show5(); hide3(); hide4(); hide6();hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r2" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ada21" onclick="show6(); hide3(); hide5(); hide4();hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r2" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+<strong>3.</strong>
+<div class=b id="addit3">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 280 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad3" onclick="show7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad31" onclick="hide7(); show8(); hide9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit4">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 200 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad4" onclick="hide7(); hide8(); show9(); hide10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad41" onclick="hide7(); hide8(); hide9(); show10(); hide11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit5">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 120 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad5" onclick="hide7(); hide8(); hide9(); hide10(); show11(); hide12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad51" onclick="hide7(); hide8(); hide9(); hide10(); hide11(); show12(); hide13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit6">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 40 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad6" onclick="hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); show13(); hide14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad61" onclick="hide7(); hide8(); hide9(); hide10(); hide11(); hide12(); hide13(); show14(); hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r3" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<strong>4.</strong>
+<div class=b id="addit7">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 300 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad7" onclick="show15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad71" onclick="hide15(); show16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit8">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 260 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad8" onclick="hide15(); hide16(); show17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad81" onclick="hide15(); hide16(); hide17(); show18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit9">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 220 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad9" onclick="hide15(); hide16(); hide17(); hide18(); show19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad91" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); show20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit10">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 180 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad10" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); show21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad101" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); show22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit11">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 140 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad11" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();show23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad111" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); show24(); hide25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit12">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 100 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad12" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); show25(); hide26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad121" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); show26(); hide27(); hide28(); hide29(); hide30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit13">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 60 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad13" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); show27(); hide28(); hide29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad131" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); show28(); hide29(); hide30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit14">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 20 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad14" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28();show29(); hide30()" label="" name="r4" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad141" onclick="hide15(); hide16(); hide17(); hide18(); hide19(); hide20(); hide21(); hide22();hide23(); hide24(); hide25(); hide26(); hide27(); hide28(); hide29(); show30()" label="" name="r4" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<strong>5.</strong>
+<div class=b id="addit15">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 310 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad15" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad151" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit16">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 290 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad16" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad161" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit17">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 270 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad17" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad171" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit18">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 250 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad18" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad181" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit19">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 230 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad19" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad191" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit20">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 210 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad20" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad201" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit21">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 190 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad21" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad211" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit22">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 170 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad22" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad221" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit23">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 150 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad23" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad231" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit24">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 130 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad24" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad241" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit25">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 110 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad25" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad251" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit26">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 90 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad26" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad261" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit27">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 70 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad27" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad271" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit28">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 50 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad28" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad281" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+<div class=b id="addit29">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 30 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad29" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad291" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+
+
+<div class=b id="addit30">
+	<p>Würden Sie die 50/50-Chance oder den Betrag von 10 Euro als sichere Zahlung bevorzugen? </p>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad30" label="" name="r5" value="1" required/></td>
+            <td valign="center" align="left" width="20%">50/50 Chance</td>
+          </tr>
+            <tr>
+            <td valign="center" align="center" width="5%"><input type="radio" id="ad301" label="" name="r5" value="2" required/></td>
+            <td valign="center" align="left" width="20%">Sichere Zahlung</td>
+          </tr>
+        </thead>
+</table>
+</p>
+</div>
+<br>
+<br>
+
+	{% next_button %}
+
+{% endblock %}
+
+

@@ -1,0 +1,138 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+#button {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #button:hover {
+  background-color:#3c5ccf;
+  }
+  #button:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+<strong>Hier nochmals die Beschreibung der Umweltaufgabe. Falls sie alle Details noch von letzter Woche behalten haben, können Sie diese Seite überspringen.</strong><br><br>
+<div class=a>
+<p align="justify">Generell geht es in der "Umweltaufgabe" darum, dass Sie die Möglichkeit haben mittels der Bearbeitung einer Dekodierungsaufgabe zum Wohlergehen der Umwelt beizutragen. Im Folgenden werden wir Ihnen näher erläutern, was damit gemeint ist.<strong> Beachten Sie zudem, dass die Bearbeitung dieser Dekodierungsaufgaben heute erfolgen wird.</strong> <br></p>
+</div>
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: center; text-align: left" ><p  align="justify"><strong>Für drei korrekt beantwortete Dekodierungsaufgabe wird eine Spende an ein Aufforstungsprojekt in der Region Nawalparasi, Nepal, generiert.</strong> Dieses Projekt wird betreut durch die weltweit agierende NGO "Eden Reforestation Project". Diese NGO setzt sich weltweit für die Aufforstung gerodeter oder zerstörten Wälder ein. Das Projekt in Nawalparasi hat das Ziel dem Trend des jahrelang schrumpfenden Waldbestandes in der Region entgegenzuwirken, indem in enger Zusammenarbeit mit der lokalen Bevölkerung  Aufforstung betrieben wird. Dies hat nicht nur positive Auswirkungen auf Ressourcenverfügbarkeit und Klima, sondern bietet auch den Menschen vor Ort eine Lebensgrundlage und sichert diese für weitere Generationen. </p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/edenproject1.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+</div>
+
+<div class=g>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+            <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">Damit <strong>ein Baum</strong> in dem Projekt gepflanzt werden kann, müssen <strong>drei Aufgaben gelöst werden</strong>. Pro gelöster Aufgabe wird somit eine Spende generiert, welche die Hälfte der Kosten einer Baumpflanzung finanziert. In der Grafik rechts neben dem Eingabefeld können Sie während der Aufgabe nachverfolgen, wie viele Bäume Sie bereits gepflanzt haben. Den Spendennachweis bezüglich der gespendeten Gesamtsumme, lassen wir Ihnen nach Ablauf der Studie per E-Mail zukommen.<br></p></td>
+                <td width="38%" style="vertical-align: top; text-align: right" ><img class=im4 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+</div>
+<div class=a>
+<p align="justify">Bevor Sie die Umweltaufgabe durchführen, werden wir Ihnen <strong>fünf verschiedene Versionen der Aufgabe</strong> vorstellen. Um sicher zu gehen, dass Sie die Versionen inhaltlich verstanden haben, bitten wir Sie Verständnisfragen zu den verschiedenen Versionen zu beantworten. In einem weiteren Schritt sollen Sie dann Ihre Präferenzen bezüglich der Versionen angeben.<br></p>
+</div>
+
+    <button id="button" class="answer btn btn-success" >Weiter</button>
+{% endblock %}
+
+

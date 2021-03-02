@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ende von Teil 1 der Studie
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 5px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p align="justify">Vielen Dank für Ihre Auswahl.</p><br>
+Falls Sie eine Erinnerungs-SMS oder eine Erinnerungsmail sowohl einen Tag vor dem nächsten Termin als auch am Termintag selbst erhalten möchten, können Sie ihre Telefonnummer und/oder ihre E-Mail-Adresse unten angeben<br><br>
+</div>
+
+Telefonnummer: {% formfield player.tel label="" %}<br>
+E-Mail: {% formfield player.email label="" %}<br>
+
+<div class=a>
+<p align="justify">Falls bis zum nächsten Termin Fragen aufkommen oder Sie uns kontaktieren möchten, können Sie uns eine E-Mail unter dem Stichwort "Onlinestudie" an <strong>umfrage@zew.de</strong> schreiben.</p>
+</div>
+
+    {% next_button %}
+
+{% endblock %}

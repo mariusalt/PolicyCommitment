@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Entscheidung
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+</style>
+  </style>
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" type="text/javascript"> 
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+Bitte tragen Sie in die jeweiligen Felder ein, wie viele Aufgaben Sie heute und wie viele Aufgaben Sie morgen bearbeiten möchten.<br><br>
+<div>
+    <table border=0 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+                <td width="15%" style="vertical-align: top; text-align: left" ><p  align="justify">Heute</p>
+                <td width="15%" style="vertical-align: center; text-align: right" >{% formfield player.worktoday label="" %}</td>
+            </tr>
+            <tr>
+                <td width="15%" style="vertical-align: top; text-align: left" ><p  align="justify">In einer Woche</p>
+                <td width="15%" style="vertical-align: center; text-align: right" >{% formfield player.workweek label="" %}</td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+</div>
+
+
+<p>&nbsp;</p>
+    <button class="answer btn btn-success" onclick="calc1()" >Weiter</button>
+{% endblock %}
+
+

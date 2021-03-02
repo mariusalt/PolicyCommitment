@@ -1,0 +1,139 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %}
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+#buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=a>
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <p style="font-size: 14px;">*Beachten Sie, dass zusätzlich zur Teilnahmevergütung im Verlauf der Studie noch durchschnittlich 3€ verdient werden.</p>
+</div>
+  </div>
+<br>
+    <button id="buttonfin" class="answer btn btn-success" >Weiter</button>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %}
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+#buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:120%;
+  max-height:120%;
+}
+img.im7 {
+  max-width:120%;
+  max-height:120%;
+}
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 14px;">*Beachten Sie, dass zusätzlich zur Teilnahmevergütung im Verlauf der Studie noch durchschnittlich 3€ verdient werden.</p>
+</div>
+<br>
+    <button id="buttonfin" class="answer btn btn-success" >Weiter</button>
+{% endblock %}

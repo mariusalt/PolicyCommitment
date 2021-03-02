@@ -1,0 +1,116 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %}
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:120%;
+  max-height:120%;
+}
+img.im7 {
+  max-width:120%;
+  max-height:120%;
+}
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der Version "Sanktion" wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 5 Aufgaben bearbeiten</strong>. Dieser Betrag beginnt bei 5€ und reduziert sich um 1€ für jede gelöste Aufgabe. Zum Vergleich: In der Basisversion gelingt dies 90% der Teilnehmenden. In den Beispielbildern ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der sanktionierende Betrag angezeigt wird, gegeben, dass keine weitere Aufgabe bearbeitet wird. In Beispielbild 1 hat die Person noch keine Aufgaben bearbeitet, in Beispielbild 2 hat die Person bereits 2 Aufgaben bearbeitet und in Beispielbild 3 hat die Person bereits fünf Aufgaben bearbeitet</p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/pun1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/pun2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/pun3.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+    <button class="answer btn btn-success" >Weiter</button>
+{% endblock %}

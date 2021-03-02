@@ -1,0 +1,1222 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Entscheidung
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+    .div1{
+        height: 200px;
+        width: 50%;
+        background-color: powderblue;
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+#button {
+  position:absolute;
+  left:64%;
+  bottom:0%;
+  -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+  background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+  background-color:#b7bac2;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #7c7f87;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:5px 76px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #1c2847;
+  }
+  #button:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #button:active {
+  position:absolute;
+  left:64%;
+  bottom:0%;
+  }
+
+#button1 {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #button1:hover {
+  background-color:#3c5ccf;
+  }
+  #button1:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+
+
+  #button2 {
+  position:absolute;
+  left:64%;
+  bottom:-30%;
+  -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+  background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+  background-color:#b7bac2;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #7c7f87;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:5px 76px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #1c2847;
+  }
+  #button2:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #button2:active {
+  position:absolute;
+  left:64%;
+  bottom:-30%;
+  }
+
+  #cont1{
+    position: absolute;
+    left:68%;
+  }
+
+
+  mark {
+  display:inline-block;
+  background-color: #38cb84;
+}
+  img.im6 {
+  max-width:40%;
+  max-height:40%;
+}
+  #items{
+    height:50px;
+    width:100%;
+    margin-bottom: 30px;
+  }
+
+  #rem{
+    position: absolute;
+    top: 0%;
+    left: 55%;
+  }
+
+
+.d{
+        padding-top: 10px ;
+
+    }
+
+.dec{
+    font-size: 20px;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    border-style: solid;
+    padding-top:10px;
+    padding-left:20px;
+    padding-bottom:40px;
+    padding-right:40px;
+    width:50%;
+}
+#versionni{
+    position: absolute;
+    top: 7%;
+    left: 55%;
+    border-style: dotted;
+    border-color: gray;
+    width:27%;
+}
+
+#versionnu{
+    position: absolute;
+    top: 7%;
+    left: 83%;
+    border-style: dotted;
+    border-color: gray;
+    width:27%;
+}
+
+#versionmo{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    border-style: dotted;
+    border-color: gray;
+    width:27%;
+}
+
+#versionpu{
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    border-style: dotted;
+    border-color: gray;
+    width:27%;
+}
+
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+}
+img.im2 {
+  max-width:100%;
+  max-height:100%;
+}
+img.im3 {
+  max-width:100%;
+  max-height:100%;
+}
+img.im4 {
+  max-width:100%;
+  max-height:100%;
+}
+
+.box{
+  position:relative;
+  height: 450px;
+}
+
+</style>
+  </style>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript"> 
+    
+    document.getElementById("cont").style.display="none";
+    document.getElementById("cont1").style.display="none";
+      function showhide()
+    {
+        var div = document.getElementById("cont");
+    if (div.style.display === "none") {
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+      }
+
+      var div1 = document.getElementById("cont1");
+    if (div1.style.display === "none") {
+        div1.style.display = "block";
+      } else {
+        div1.style.display = "none";
+      }
+    } 
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+} 
+  function allowDrop1(ev) {
+    ev.preventDefault();
+}
+  function allowDrop2(ev,ee) {
+    ev.preventDefault();
+    ee.preventDefault();
+}
+  function allowDrop3(ev) {
+    ev.preventDefault();
+}
+  function allowDrop4(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+  Value = ev.target.id;
+  Value = Value + ",items";
+  ev.dataTransfer.setData("text", Value);
+}
+function drag1(ev) {
+  Value = document.getElementById("c1").value;
+  Value = Value + ",c1";
+  ev.dataTransfer.setData("text", Value);
+}
+
+function drag2(ev) {
+  Value = document.getElementById("c2").value;
+  Value = Value + ",c2";
+  ev.dataTransfer.setData("text", Value);
+}
+function drag3(ev) {
+  Value = document.getElementById("c3").value;
+  Value = Value + ",c3";
+  ev.dataTransfer.setData("text", Value);
+}
+function drag4(ev) {
+  Value = document.getElementById("c4").value;
+  Value = Value + ",c4";
+  ev.dataTransfer.setData("text", Value);;
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  var data = data.split(",", 2);
+  var data1 = data[0];
+  var id1 = data[data.length-1];
+  $( '#' + id1 ).val('');
+  if (id1!="items"){
+  $( '#items' ).append( '<span draggable="true" style="background-color: #38cb84" class="pad" ondragstart="drag(event)"" id="' + data1 + '"><mark>' + data1 + '</mark></span>&nbsp;' );
+  $( '#' + id1 ).css("background-color", "transparent");
+  }
+}
+
+function drop1(ev) {
+  ev.preventDefault();
+  Value = document.getElementById("c1").value;
+  var data = ev.dataTransfer.getData("text");
+  var data = data.split(",", 2);
+  var id1 = data[data.length-1];
+  if (id1!='items') {
+    $( '#' + id1 ).append( Value );
+    $( '#' + id1 ).val(Value);
+     if($('#c1').val().length==0) { // zero-length string AFTER a trim
+            $( '#' + id1 ).css("background-color", "transparent");
+     }
+ }
+     else {
+        if($('#c1').val().length>0) { // zero-length string AFTER a trim
+            $( '#items' ).append( '<span draggable="true" style="background-color: #38cb84" class="pad" ondragstart="drag(event)"" id="' + Value + '"><mark>' + Value + '</mark></span>&nbsp;' );
+     }
+    }
+   
+
+  var data = data[0];
+  ev.target.appendChild(document.getElementById(data));
+  console.log(Value=data);
+  document.getElementById("c1").value = Value;
+  $('#c1').css("background-color", "#38cb84");
+}
+function drop2(ev) {
+  ev.preventDefault();
+  Value = document.getElementById("c2").value;
+  var data = ev.dataTransfer.getData("text");
+  var data = data.split(",", 2);
+  var id1 = data[data.length-1];
+   if (id1!='items') {
+    $( '#' + id1 ).append( Value );
+    $( '#' + id1 ).val(Value);
+    if($('#c2').val().length==0) { // zero-length string AFTER a trim
+            $( '#' + id1 ).css("background-color", "transparent");
+     }
+  } 
+  else {
+        if($('#c2').val().length>0) { // zero-length string AFTER a trim
+            $( '#items' ).append( '<span draggable="true" style="background-color: #38cb84" class="pad" ondragstart="drag(event)"" id="' + Value + '"><mark>' + Value + '</mark></span>&nbsp;' );
+     }
+    }
+  var data = data[0];
+  ev.target.appendChild(document.getElementById(data));
+  console.log(Value=data);
+  document.getElementById("c2").value = Value;
+  $('#c2').css("background-color", "#38cb84");
+}
+function drop3(ev) {
+  ev.preventDefault();
+  Value = document.getElementById("c3").value;
+  var data = ev.dataTransfer.getData("text");
+  var data = data.split(",", 2);
+  var id1 = data[data.length-1];
+   if (id1!='items') {
+    $( '#' + id1 ).append( Value );
+    $( '#' + id1 ).val(Value);
+    if($('#c3').val().length==0) { // zero-length string AFTER a trim
+            $( '#' + id1 ).css("background-color", "transparent");
+     }
+  } 
+  else {
+        if($('#c3').val().length>0) { // zero-length string AFTER a trim
+            $( '#items' ).append( '<span draggable="true" style="background-color: #38cb84" class="pad" ondragstart="drag(event)"" id="' + Value + '"><mark>' + Value + '</mark></span>&nbsp;' );
+     }
+    }
+  var data = data[0];
+  ev.target.appendChild(document.getElementById(data));
+  console.log(Value=data);
+  document.getElementById("c3").value = Value;
+  $('#c3').css("background-color", "#38cb84");
+}
+function drop4(ev) {
+  ev.preventDefault();
+  Value = document.getElementById("c4").value;
+  var data = ev.dataTransfer.getData("text");
+  var data = data.split(",", 2);
+  var id1 = data[data.length-1];
+   if (id1!='items') {
+    $( '#' + id1 ).append( Value );
+    $( '#' + id1 ).val(Value);
+    if($('#c4').val().length==0) { // zero-length string AFTER a trim
+            $( '#' + id1 ).css("background-color", "transparent");
+     }
+  } 
+  else {
+        if($('#c4').val().length>0) { // zero-length string AFTER a trim
+            $( '#items' ).append( '<span draggable="true" style="background-color: #38cb84" class="pad" ondragstart="drag(event)"" id="' + Value + '"><mark>' + Value + '</mark></span>&nbsp;' );
+     }
+    }
+  var data = data[0];
+  ev.target.appendChild(document.getElementById(data));
+  console.log(Value=data);
+  document.getElementById("c4").value = Value;
+  $('#c4').css("background-color", "#38cb84");
+}
+
+$('#c1').keypress(function(e) {
+    e.preventDefault();
+});
+$("#c1").on('keydown',  function(event){
+  var key = event.charCode || event.keyCode || event.which;// alert (key);
+  var char = String.fromCharCode(event.key);
+  if( key === 8 || key=== 46 ){
+    event.preventDefault();
+    return false;
+  } else {    
+    $("#c1").append(char);
+  }
+});
+$('#c2').keypress(function(e) {
+    e.preventDefault();
+});
+$("#c2").on('keydown',  function(event){
+  var key = event.charCode || event.keyCode || event.which;// alert (key);
+  var char = String.fromCharCode(event.key);
+  if( key === 8 || key=== 46 ){
+    event.preventDefault();
+    return false;
+  } else {    
+    $("#c2").append(char);
+  }
+});
+$('#c3').keypress(function(e) {
+    e.preventDefault();
+});
+$("#c3").on('keydown',  function(event){
+  var key = event.charCode || event.keyCode || event.which;// alert (key);
+  var char = String.fromCharCode(event.key);
+  if( key === 8 || key=== 46 ){
+    event.preventDefault();
+    return false;
+  } else {    
+    $("#c3").append(char);
+  }
+});
+$('#c4').keypress(function(e) {
+    e.preventDefault();
+});
+$("#c4").on('keydown',  function(event){
+  var key = event.charCode || event.keyCode || event.which;// alert (key);
+  var char = String.fromCharCode(event.key);
+  if( key === 8 || key=== 46 ){
+    event.preventDefault();
+    return false;
+  } else {    
+    $("#c4").append(char);
+  }
+});
+
+
+
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div width="80%" class=d>
+ {% if participant.vars.gr == 4 %}<strong>Treffen Sie die folgende Auwahl für den Fall, dass Sie mit einer anderen Person in einer Gruppe sein werden<br>(Gruppengröße = 2 Personen).</strong><br><br>
+  {% elif participant.vars.gr == 2 %}<strong>Treffen Sie die folgende Auwahl für den Fall, dass Sie mit drei anderen Personen in einer Gruppe sein werden<br>(Gruppengröße = 4 Personen).</strong><br><br>
+  {% else %}{% endif %}
+<p align="justify" style="font-size: 17px;">Bitte teilen Sie uns nun ihre Präferenzen bezüglich der Versionen der Dekodierungsaufgabe {% if participant.vars.time == "delay" %}, <strong>die Sie nächste Woche bearbeiten werden</strong>,{% endif %} mit. Ziehen Sie hierzu die fünf verschiedenen Durchführungsversionen in die fünf Textfelder. Ziehen sie bitte die Version in das Textfeld "1. Präferenz", für die Ihre Präferenzen am stärksten sind. Ziehen Sie die Version in "2. Präferenz", für die Sie die zweitstärkste Präferenz haben, etc.. und enden mit dem Textfeld "5. Präferenz", in welches Sie die Version ziehen, für die Sie die geringsten Präerenzen haben. <br>Bitte beachten Sie, dass die Rangordnung der Präferenzen für die Versionen auch die Implementierungswahrscheinlichkeit beeinflussen, e.g. die Version in "1. Präferenz" werden Sie mit der höchsten Wahrscheinlichkeit bearbeiten. Die Version in "2. Präferenz" werden Sie mit der zweithöchsten Wahrscheinlichkeit bearbeiten, etc.. und die Version in "5. Präferenz" mit geringster Wahrscheinlichkeit.</p>
+  <br>
+</div>
+
+<div class="box">
+<div class="dec">
+  <p style="font-size: 13px;">Die Versionen bitte durch Drag&Drop in die Felder ziehen</p>
+<div id="items" ondrop="drop(event)" ondragover="allowDrop(event)"  data-max="-1">
+    <span id="Version A"  draggable="true" ondragstart="drag(event)" class="item" ><mark>Version A</mark></span> 
+    <span id="Version B"  draggable="true" ondragstart="drag(event)" class="item" ><mark>Version B</mark></span>
+    <span id="Version C"  draggable="true" ondragstart="drag(event)" class="item" ><mark>Version C</mark></span> 
+    <span id="Version D"  draggable="true" ondragstart="drag(event)" class="item" ><mark>Version D</mark></span> 
+    </div>
+
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+            <tr>
+            <td valign="center" align="center" width="17%"><strong>1. Präferenz</strong></td>
+            <td valign="center" align="center" width="21%">
+            <input type="text" name="first2"  id="c1" draggable="true" ondragstart="drag1(event)" class='container' ondrop="drop1(event)" ondragover="allowDrop1(event)"  style="border-style: solid;" data-max="1"></td>
+          </tr>
+          <tr>
+            <td valign="center" align="center" ><strong>2. Präferenz</strong></td>
+            <td valign="center" align="center">
+            <input type="text" name="second2"   id="c2" class='container'draggable="true" ondragstart="drag2(event)" ondrop="drop2(event)" ondragover="allowDrop2(event)"  style="border-style: solid;" data-max="1"></td>
+            </tr>
+          <tr>
+            <td valign="center" align="center" ><strong>3. Präferenz</strong></td>
+            <td valign="center" align="center" >
+            <input type="text" name="third2"   id="c3" class='container'draggable="true" ondragstart="drag3(event)" ondrop="drop3(event)" ondragover="allowDrop3(event)"  style="border-style: solid;" data-max="1"></td>
+            </tr>
+          <tr>
+            <td valign="center" align="center" ><strong>4. Präferenz</strong></td>
+            <td valign="center" align="center" >
+            <input type="text" name="fourth2"   id="c4" class='container'draggable="true" ondragstart="drag4(event)" ondrop="drop4(event)" ondragover="allowDrop4(event)"  style="border-style: solid;" data-max="1"></td>
+            </tr>
+          <tr>
+        </table>
+    </div>
+
+     <div id="rem">
+    <strong>Zur Erinnerung hier eine Übersicht der Versionen:</strong>
+  </div>
+  <div id="versionni">
+    <p id="ni"><strong>Version A</strong></p>
+    {% if participant.vars.noinc == 1 %}<img class=im1 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 1 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 1 %}<img class=im3 src="{% static "pebs/moneycut.png" %}" />{% elif participant.vars.punish == 1 %}<img class=im4 src="{% static "pebs/puncut2.png" %}" />{% endif %}
+  </div>
+  <div id="versionnu">
+    <p id="nu"><strong>Version B</strong></p>
+    {% if participant.vars.noinc == 2 %}<img class=im2 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 2 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 2 %}<img class=im3 src="{% static "pebs/moneycut.png" %}" />{% elif participant.vars.punish == 2 %}<img class=im4 src="{% static "pebs/puncut2.png" %}" />{% endif %}
+    </div>
+    <div id="versionmo">
+    <p id="mo"><strong>Version C</strong></p>
+    {% if participant.vars.noinc == 3 %}<img class=im3 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 3 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 3 %}<img class=im3 src="{% static "pebs/moneycut.png" %}" />{% elif participant.vars.punish == 3 %}<img class=im4 src="{% static "pebs/puncut2.png" %}" />{% endif %}
+    </div>
+    <div id="versionpu">
+    <p id="pu"><strong>Version D</strong></p>
+    {% if participant.vars.noinc == 4 %}<img class=im4 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 4 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 4 %}<img class=im3 src="{% static "pebs/moneycut.png" %}" />{% elif participant.vars.punish == 4 %}<img class=im4 src="{% static "pebs/puncut2.png" %}" />{% endif %}
+  </div>
+  <div id='button' onclick="showhide()">Beschreibung der Versionen</div>
+  </div>
+  <div id="cont1">
+    siehe unten
+  </div>
+<br>
+
+    <button id="button1" class="answer btn btn-success" onclick="calc1()" >Weiter</button>
+
+
+
+<div id="cont">
+<p style="text-align: center; font-size:20px;"><strong>Anleitung</strong><br></p>
+<p style="text-align: center;">_______________________________________________________________________________________________________________________________________________________________</p>
+<strong>{% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.nudge == 1 %}Version A{% elif participant.vars.mon == 1 %}Version A{% elif participant.vars.punish == 1 %}Version A{% else %}Version A{% endif %}</strong>
+{% if participant.vars.noinc == 1 %}<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version A wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dem Beispielbild ist zu erkennen, dass Ihnen die Anzahl an bereits gepflanzten Bäumen jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 1 %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" colspan=2 style="vertical-align: center; text-align: left" ><p  align="justify">Die Version A ermöglicht es Ihnen Ihre eigene Performance mit der anderer Teilnehmender zu vergleichen. Ihnen wird in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäume angezeigt, sondern zusätzlich sowohl <strong>die durchschnittliche Performance anderer Teilnehmender</strong> als auch <strong>die Performance der Person, die besser als 74% aller Teilnehmenden war</strong> (Top 25%), angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+      <div >
+        <p>Rläuterung Top 25%: Die Vergleichsperson mit der Performance "Top 25%", stellt die Person dar, dessen Performance besser war als 74% der anderen Personen und schlechter als 24% der anderen Personen.</p>
+      </div>
+      <br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Performancevergelich</td>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Durchschnittsperformance & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 1 %}
+
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" colspan=2 style="vertical-align: top; text-align: left" ><p  align="justify">In der Version A wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 2,5€ betragen. Ihre feste Vergütung beträgt in dieser Version 6,5€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 9€ verdienen. Sie müssen also zehn Aufgaben lösen, um die maximale Bonuszahlung zu erlangen. Zum Vergleich: In der Basisversion gelingt dies 80% aller Teilnehmenden.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/money.png" %}" /></td>
+            </tr>
+       </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" style="vertical-align: top; text-align: left" >Bonuszahlung</td>
+            <td width="30%" style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">2,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" colspan=3 ><p  align="justify">In der Version B wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 2,50€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: In der Basisversion gelingt dies 80% der Teilnehmenden. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Sankionszahlung so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>
+            </tr>
+            <tr>
+                <td width="28%" style="vertical-align: center; text-align: left" >Beispielbild 1</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 2</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 3</td>
+            </tr>    
+            <tr>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun1.png" %}" /></td>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun2.png" %}" /></td>
+            <td width="58%" style="vertical-align: center; text-align: left;" ><img class=im7 src="{% static "pebs/pun3.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 2 %}Version B{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.punish == 2 %}Version B{% else %}Version B{% endif %}</strong>
+{% if participant.vars.noinc == 2 %}<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version B wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dem Beispielbild ist zu erkennen, dass Ihnen die Anzahl an bereits gepflanzten Bäumen jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 2 %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" colspan=2 style="vertical-align: center; text-align: left" ><p  align="justify">Die Version B ermöglicht es Ihnen Ihre eigene Performance mit der anderer Teilnehmender zu vergleichen. Ihnen wird in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäume angezeigt, sondern zusätzlich sowohl <strong>die durchschnittliche Performance anderer Teilnehmender</strong> als auch <strong>die Performance der Person, die besser als 74% aller Teilnehmenden war</strong> (Top 25%), angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+      <div >
+        <p>Rläuterung Top 25%: Die Vergleichsperson mit der Performance "Top 25%", stellt die Person dar, dessen Performance besser war als 74% der anderen Personen und schlechter als 24% der anderen Personen.</p>
+      </div>
+      <br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Performancevergelich</td>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Durchschnittsperformance & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 2 %}
+
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" colspan=2 style="vertical-align: top; text-align: left" ><p  align="justify">In der Version B wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 2,5€ betragen. Ihre feste Vergütung beträgt in dieser Version 6,5€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 9€ verdienen. Sie müssen also zehn Aufgaben lösen, um die maximale Bonuszahlung zu erlangen. Zum Vergleich: In der Basisversion gelingt dies 80% aller Teilnehmenden.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/money.png" %}" /></td>
+            </tr>
+       </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" style="vertical-align: top; text-align: left" >Bonuszahlung</td>
+            <td width="30%" style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">2,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 2 %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" colspan=3 ><p  align="justify">In der Version B wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 2,50€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: In der Basisversion gelingt dies 80% der Teilnehmenden. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Sankionszahlung so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>
+            </tr>
+            <tr>
+                <td width="28%" style="vertical-align: center; text-align: left" >Beispielbild 1</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 2</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 3</td>
+            </tr>    
+            <tr>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun1.png" %}" /></td>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun2.png" %}" /></td>
+            <td width="58%" style="vertical-align: center; text-align: left;" ><img class=im7 src="{% static "pebs/pun3.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version B wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% endif %}
+
+
+
+
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 3 %}Version C{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.punish == 3 %}Version C{% else %}Version C{% endif %}</strong>
+{% if participant.vars.noinc == 3 %}<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version C wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dem Beispielbild ist zu erkennen, dass Ihnen die Anzahl an bereits gepflanzten Bäumen jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 3 %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" colspan=2 style="vertical-align: center; text-align: left" ><p  align="justify">Die Version C ermöglicht es Ihnen Ihre eigene Performance mit der anderer Teilnehmender zu vergleichen. Ihnen wird in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäume angezeigt, sondern zusätzlich sowohl <strong>die durchschnittliche Performance anderer Teilnehmender</strong> als auch <strong>die Performance der Person, die besser als 74% aller Teilnehmenden war</strong> (Top 25%), angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+      <div >
+        <p>Rläuterung Top 25%: Die Vergleichsperson mit der Performance "Top 25%", stellt die Person dar, dessen Performance besser war als 74% der anderen Personen und schlechter als 24% der anderen Personen.</p>
+      </div>
+      <br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Performancevergelich</td>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Durchschnittsperformance & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 3 %}
+
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" colspan=2 style="vertical-align: top; text-align: left" ><p  align="justify">In der Version C wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 2,5€ betragen. Ihre feste Vergütung beträgt in dieser Version 6,5€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 9€ verdienen. Sie müssen also zehn Aufgaben lösen, um die maximale Bonuszahlung zu erlangen. Zum Vergleich: In der Basisversion gelingt dies 80% aller Teilnehmenden.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/money.png" %}" /></td>
+            </tr>
+       </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" style="vertical-align: top; text-align: left" >Bonuszahlung</td>
+            <td width="30%" style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">2,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 3 %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" colspan=3 ><p  align="justify">In der Version C wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 2,50€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: In der Basisversion gelingt dies 80% der Teilnehmenden. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Sankionszahlung so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>
+            </tr>
+            <tr>
+                <td width="28%" style="vertical-align: center; text-align: left" >Beispielbild 1</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 2</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 3</td>
+            </tr>    
+            <tr>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun1.png" %}" /></td>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun2.png" %}" /></td>
+            <td width="58%" style="vertical-align: center; text-align: left;" ><img class=im7 src="{% static "pebs/pun3.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version C wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% endif %}
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 4 %}Version D{% elif participant.vars.nudge == 4 %}Version D{% elif participant.vars.mon == 4 %}Version D{% elif participant.vars.punish == 4 %}Version D{% else %}Version D{% endif %}</strong>
+{% if participant.vars.noinc == 4 %}<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version D wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dem Beispielbild ist zu erkennen, dass Ihnen die Anzahl an bereits gepflanzten Bäumen jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 4 %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" colspan=2 style="vertical-align: center; text-align: left" ><p  align="justify">Die Version D ermöglicht es Ihnen Ihre eigene Performance mit der anderer Teilnehmender zu vergleichen. Ihnen wird in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäume angezeigt, sondern zusätzlich sowohl <strong>die durchschnittliche Performance anderer Teilnehmender</strong> als auch <strong>die Performance der Person, die besser als 74% aller Teilnehmenden war</strong> (Top 25%), angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+      <div >
+        <p>Rläuterung Top 25%: Die Vergleichsperson mit der Performance "Top 25%", stellt die Person dar, dessen Performance besser war als 74% der anderen Personen und schlechter als 24% der anderen Personen.</p>
+      </div>
+      <br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Performancevergelich</td>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Durchschnittsperformance & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 4 %}
+
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" colspan=2 style="vertical-align: top; text-align: left" ><p  align="justify">In der Version D wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 2,5€ betragen. Ihre feste Vergütung beträgt in dieser Version 6,5€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 9€ verdienen. Sie müssen also zehn Aufgaben lösen, um die maximale Bonuszahlung zu erlangen. Zum Vergleich: In der Basisversion gelingt dies 80% aller Teilnehmenden.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/money.png" %}" /></td>
+            </tr>
+       </tbody>
+    </table>
+<br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" style="vertical-align: top; text-align: left" >Bonuszahlung</td>
+            <td width="30%" style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td  style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">2,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 4 %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" colspan=3 ><p  align="justify">In der Version D wird, wie in allen Versionen, für zwei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 2,50€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: In der Basisversion gelingt dies 80% der Teilnehmenden. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Sankionszahlung so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>
+            </tr>
+            <tr>
+                <td width="28%" style="vertical-align: center; text-align: left" >Beispielbild 1</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 2</td>
+                <td width="28%" style="vertical-align: center; text-align: left;" >Beispielbild 3</td>
+            </tr>    
+            <tr>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun1.png" %}" /></td>
+            <td width="28%" style="vertical-align: center; text-align: left;" ><img class=im6 src="{% static "pebs/pun2.png" %}" /></td>
+            <td width="58%" style="vertical-align: center; text-align: left;" ><img class=im7 src="{% static "pebs/pun3.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >6,50€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >9€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version D wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Feste Vergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endif %}
+<p>&nbsp;</p>
+<p>_________________________________________________________________________________________________________________________________________</p>
+<p>&nbsp;</p>
+<div id='button2' class='a' onclick="showhide()">Schließen</div>
+<p>&nbsp;</p>
+</div>
+{% endblock %}
+
+

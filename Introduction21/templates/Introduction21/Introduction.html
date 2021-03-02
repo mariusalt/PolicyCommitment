@@ -1,0 +1,85 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Willkommen
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p>Schön, dass Sie wieder dabei sind!</p>
+</div>
+<div class=b>
+<p align="justify"> Vorab finden Sie hier die wichtigsten Eckpunkte:</p>
+</div>
+<div class=c>
+<p>Die Studie bestehet das zwei Teilen.</p>
+<ul>
+    <li>Teil 1 wurde letzte Woche durchgeführt.</li>
+    <li>Teil 2 wird heute durchgeführt.</li>
+    {% if participant.vars.time == 'immi' %}
+    <li>Die Bearbeitung des heutigen Teiles wird ca. 45 Minuten dauern.</li>
+    {% else %}
+    <li>Die Bearbeitung des heutigen Teiles wird ca. 60 Minuten dauern.</li>
+    {% endif %}
+</ul>
+Vergütung:
+<ul>
+    <li>Sie erhalten durchschnittlich 20€ falls Sie die heutige Teilnahme abschließen.</li>
+</ul>
+</div>
+
+<div> {% if participant.vars.time == 'immi' %}
+    <p>Im heutigen Teil bitten wir Sie: </p>
+    <ul>
+        <li>Zwei Proberunden der Dekodierungsaufgaben zu bearbeiten</li>
+        <li>Einen Fragebogen vollständig auszufüllen</li>
+    </ul>
+    {% else %}
+    {% if player.sechoi == 1 %}
+    <p >Im heutigen Teil bitten wir Sie:</p>
+    <ul>
+        <li>Zwei Proberunden der Dekodierungsaufgaben zu bearbeiten</li>
+        <li>Sich eine kurze Erinnerung zum Ablauf der Umweltaufgabe durchzulesen</li>
+        <li>Entscheidungen bezüglich der Umweltaufgabe zu treffen</li>
+        <li>8 Minuten lang die Dekodierungsaufgaben mit positiven Umweltauswirkungen zu bearbeiten</li>
+        <li>Einen Fragebogen vollständig auszufüllen</li>
+    </ul>
+    {% else %}
+    <p >Im heutigen Teil bitten wir Sie:</p>
+    <ul>
+        <li>Zwei Proberunden der Dekodierungsaufgaben zu bearbeiten</li>
+        <li>8 Minuten lang die Dekodierungsaufgaben mit positiven Umweltauswirkungen zu bearbeiten</li>
+        <li>Einen Fragebogen vollständig auszufüllen</li>
+    </ul>
+    {% endif %}
+    {% endif %}
+    {% next_button %}
+
+
+{% endblock %}

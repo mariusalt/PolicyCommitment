@@ -1,0 +1,166 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Dekodierungsaufgabe
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=b>
+<strong>Dekodierungsaufgabe:</strong><br>
+<p align="justify">Im Folgenden werden wir Sie mit der Dekodierungsaufgabe vertraut machen, indem wir Ihnen Instruktionen bereitstellen und Sie drei Codes bearbeiten lassen.</p>
+</div>
+<div class=b>
+<p align="justify">
+ Die Aufgabe besteht aus der Dekodierung eines Codes. Um die Aufgabe zu lösen, müssen Sie einem zufällig gewählten siebenstelligen Zahlencode, die sieben zugehörigen Buchstaben zuordnen.</p>
+</div>
+<div class=c>
+<p align="justify">In Beispielbild 1 sehen Sie den Aufgabenscreen samt einer Beispielaufgabe. 
+<ul>
+<li>In der Mitte des Bildschirms sehen Sie jeweils den Zahlencode, den es zu übersetzen gilt.</li> 
+<li>Im oberen Teil des Bildschirms befindet sich eine Übersetzungstabelle, mittels der Sie den Code übersetzen sollen. Diese Tabelle wird Ihnen während der gesamten Aufgabe angezeigt und ihr Inhalt erneuert sich mit jeder Aufgabe.</li> 
+<li>Im unteren Teil sehen Sie das Antwortfeld, in das Sie Ihre Übersetzung eintragen sollen.</li> 
+<li>Mit dem "Antwort"-Button oder der Enter-Taste können Sie Ihre Eingabe bestätigen.</li>
+</ul>
+</div>
+
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+            <td width="100%" style="vertical-align: top; text-align: left" >Beispielbild 1:</td>
+            </tr>
+            <tr class=border>
+                <td width="100%" style="text-align: center" ><img class=im1 src="{% static "pebs/taskexplnoenvi.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<div class=e>
+<p  align="justify">In Beispielbild 2 sind die Lösungsschritte angezeigt. 
+<ul>
+<li>Die Zahlen im Zahlencode müssen in der Übersetzungstabelle zu ihrem jeweiligen Buchstaben zugeordnet werden.</li> 
+<li>Dieser Buchstabe muss dann unten in das Eingabefeld eingetragen werden.</li>
+</ul>
+</p>
+</div>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="100%" style="vertical-align: top; text-align: left" >Beispielbild 2:</td>
+            </tr>
+            <tr class=border>
+                <td width="100%" style="text-align: center" ><img class=im1 src="{% static "pebs/procedure_explnoenvi.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+    <div class=e>
+<p  align="justify">In Beispielbild 3 wurden sämtliche Zahlen im Zahlencode übersetzt und korrekt in das Lösungsfeld eingegeben. 
+<ul>
+<li>Für den Fall, dass die Antwort nicht korrekt eingegeben wurde, wird Ihnen eine Fehlermeldung angezeigt und Sie werden gebeten die Antwort zu korrigieren.</li> 
+<li>Bei korrekter Antwort wird eine neue Aufgabe erscheinen, die es ebenfalls zu lösen gilt.</li>
+</ul>
+</p>
+</div>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="100%" style="vertical-align: top; text-align: left" >Beispielbild 3:</td>
+            </tr>
+            <tr class=border>
+                <td width="100%" style="text-align: center" ><img class=im1 src="{% static "pebs/solution_explnoenvi.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<div class=f>
+
+    <button class="answer btn btn-success" >Weiter zu den Testaufgaben</button>
+{% endblock %}
+
+

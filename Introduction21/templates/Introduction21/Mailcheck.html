@@ -1,0 +1,54 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Willkommen
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=b>
+<p>Bitte geben Sie zur Validierung den Anmeldecode ein, den wir Ihnen letzte Woche bereitgestellt haben.</p>
+<table class="tbl" border=0 width="50%">
+        <tbody>
+            <tr>
+                <td   width="20%">Anmeldecode:
+                </td>
+                <td  width="30%"><input type="text" name="mail" required>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form.mail.errors }}
+    <br>
+    <br>
+
+</div>
+
+    {% next_button %}
+
+{% endblock %}

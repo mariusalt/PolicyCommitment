@@ -1,0 +1,89 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Aufgabe starten
+{% endblock %}
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 20px ;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-style: solid;
+    }
+.b{
+        padding-top: 30px ;
+        padding-bottom: 20px ;
+
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:80%;
+  max-height:80%;
+  padding-bottom: 10px ;
+}
+img.im2 {
+  max-width:110%;
+  max-height:110%;
+  padding-bottom: 1px ;
+}
+img.im3 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+  </style>
+{% endblock %}
+{% block content %}
+Los geht's
+<!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/1.8/ref/templates/language/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+-->
+{% if participant.vars.ref == 'self' %}
+<div class=b>
+  <div class=a>
+  <p align="justify">Gegeben Ihrer Präferenzen, wurde folgende Version zur Durchführung zur Bearbeitung {% if participant.vars.time == 'immi' %}{% else %}in sieben Tagen{% endif %}für Sie für eine andere zufällig ausgewählte Person ausgewählt:<br></p>
+  
+  <p align="justify">Sie werden die Version <strong>{{ participant.vars.cho }}</strong> bearbeiten.<br>
+  {% if participant.vars.comp == 1 %}Dafür, dass Sie auf Ihre erste Präferenz verzichten, werden Sie mit {{ participant.vars.extrpay }}€ entschädigt.{% endif %}</p>
+  </div>
+  {% if participant.vars.time == 'immi' %}
+<p>Bitte klicken Sie auf "Aufgabe starten", sobald Sie bereit sind.</p>
+</div>
+    <button id="buttonfin" class="answer btn btn-success">Aufgabe starten</button>
+{% else %}
+<button id="buttonfin" class="answer btn btn-success">Weiter</button>
+{% endif %}
+
+{% else %}
+
+<div class=b>
+  <div class=a>
+  <p align="justify"><strong>{% if group.who == 1 %}Es wurde zufällig ausgewählt, dass Ihre Präferenzen für Sie und {% if participant.vars.gro == 2 %}die andere Person in Ihrer Gruppe{% else %}und die anderen Personen in ihrer Gruppe{% endif %} relevant werden.{% else %}Es wurde zufällig ausgewählt, dass die Präferenzen einer anderen Person in Ihrer Gruppe für Sie und {% if participant.vars.gro == 2 %}{% else %}und die anderen Personen{% endif %} relevant werden.{% endif %}</strong><br><br>
+    Gegeben dieser Präferenzen, wurde folgende Version zur Durchführung zur Bearbeitung {% if participant.vars.time == 'immi' %}{% else %}in sieben Tagen{% endif %}für Sie für eine andere zufällig ausgewählte Person ausgewählt:<br></p>
+
+  
+  <p align="justify">Sie und {% if participant.vars.gro == 2 %}die andere Person in Ihrer Gruppe{% else %}und die anderen Personen in ihrer Gruppe{% endif %} werden die Version <strong>{{ participant.vars.cho }}</strong> bearbeiten.<br>
+  {% if group.who == 1 %}{% if participant.vars.comp == 1 %}Dafür, dass Sie auf Ihre erste Präferenz verzichten, werden Sie mit {{ participant.vars.extrpay }}€ entschädigt.{% endif %}{% endif %</p>
+  </div>
+  {% if participant.vars.time == 'immi' %}
+<p>Bitte klicken Sie auf "Aufgabe starten", sobald Sie bereit sind.</p>
+</div>
+    <button id="buttonfin" class="answer btn btn-success">Aufgabe starten</button>
+{% else %}
+<button id="buttonfin" class="answer btn btn-success">Weiter</button>
+{% endif %}
+
+
+{% endif %}
+
+{% endblock %}

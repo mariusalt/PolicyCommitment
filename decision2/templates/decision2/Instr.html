@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Weiterer Ablauf
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+{% if participant.vars.sechoi == 1 %}
+<div class=b>
+<p align="justify">Nachdem Sie sich letzte Woche für eine präferierte Rangordnung der verschiedenen Durchführungsversionen entschieden haben, würden wir Ihnen in diesem Teil die verschiedenen Versionen nochmals in Erinnerung rufen und Ihnen die Möglichkeit geben, Ihre Entscheidung aus der letzten Woche zu ändern. Ob Ihre Entscheidungen aus vorheriger Woche oder dieser Woche relevant werden, wird im Anschluss zufällig ausgewählt.<br>
+Jede Version enthält einen Mechanismus, der Sie dabei unterstützen soll, dass Ihr positiver Beitrag zum Umweltschutz so groß wie möglich ausfällt.</p><br>
+<p>Die Versionen, aus denen Sie auswählen können, bestehen aus </p>
+<ul>
+    <li>Version A</li>
+    <li>Version B</li>
+    <li>Version C</li>
+    <li>Version D</li>
+</ul>
+</div>
+<div class=c>
+Auf den folgenden Seiten, werden wir Ihnen diese Versionen genauer erläutern. Nach einer kurzen Verständnisabfrage, bitten wir Sie dann zu entscheiden, welche Version{% if participant.vars.ref == 'other' %} eine andere zufällig ausgewählte Person {% else %} Sie gerne {% endif %}im Folgenden bearbeiten möchten.
+</div>
+{% else %}
+<p align="justify">Nachdem Sie sich mit der Bearbeitung der Dekodierungsaufgaben vertraut gemacht haben, werden Sie im folgenden 8 Minuten Zeit haben um weitere Dekodierungsaufgaben zu lösen. Für drei korrekt beantwortete Dekodierungsaufgaben wird ein Baum in einem Aufforstungsprojekt in Nepal gepflanzt (gerne senden wir Ihnen auf Wunsch eine aggregierte Spendenquittung zu). <br>Zudem haben Sie sich letzte Woche für Implementierungswahrscheinlichkeiten der verschiedenen Durchführungsversionen entschieden. Auf Basis Ihrer Entscheidungen, werden wir eine bestimmte Version auswählen, die für die Bearbeitung relevant wird. <br><br>Klicken Sie nun bitte auf "Weiter".</p><br>
+{% endif %}
+
+    {% next_button %}
+
+{% endblock %}

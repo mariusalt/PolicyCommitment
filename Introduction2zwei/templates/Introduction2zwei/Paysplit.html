@@ -1,0 +1,713 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Auszahlungsvarianten
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+  input[type='radio'] { transform: scale(1.3); }
+.a{
+        padding-top: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 5px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+
+
+  </style>
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" type="text/javascript"> 
+document.getElementById("addit").style.display="none";
+      function show1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+
+
+
+  function disable1() {
+  document.getElementById("mr21").disabled = true;
+  document.getElementById("mr31").disabled = true;
+  document.getElementById("mr41").disabled = true;
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr21").checked = false;
+  document.getElementById("mr31").checked = false;
+  document.getElementById("mr41").checked = false;
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+
+function undisable1() {
+  if (document.getElementById("mr22").checked==true){
+  document.getElementById("mr21").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr112").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+  } 
+  else {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable2() {
+  document.getElementById("mr31").disabled = true;
+  document.getElementById("mr41").disabled = true;
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr31").checked = false;
+  document.getElementById("mr41").checked = false;
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable2() {
+  if (document.getElementById("mr32").checked==true) {
+  document.getElementById("mr31").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+} else if ( document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} 
+  else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr112").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+} 
+  else {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable3() {
+  document.getElementById("mr41").disabled = true;
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr41").checked = false;
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable3() {
+if (document.getElementById("mr42").checked==true) {
+  document.getElementById("mr41").disabled = false;
+} else if ( document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if ( document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true && document.getElementById("mr92").checked==true && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} 
+  else if ( document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr112").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+  else {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable4() {  
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable4() {
+ if ( document.getElementById("mr52").checked==true) {
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if ( document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} 
+  else if ( document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && documentgetElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr112").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+} 
+  else {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable5() {
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable5() {
+if (document.getElementById("mr62").checked==true) {
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if ( document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} 
+  else if ( document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr112").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+  else {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable6() {
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable6() {
+ if (document.getElementById("mr72").checked==true) {
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} 
+  else if (document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+  else {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable7() {
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable7() {
+ if (document.getElementById("mr82").checked==true) {
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} 
+  else if (document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+  else {
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable8() {
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable8() {
+if (document.getElementById("mr92").checked==true) {
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} 
+  else if (document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==false && document.getElementById("mr112").checked==true) {
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+  else {
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+function disable9() {
+  document.getElementById("mr101").disabled = true;
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr101").checked = false;
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable9() {
+ if (document.getElementById("mr102").checked==true) {
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+} 
+  else if (document.getElementById("mr102").checked==false && document.getElementById("mr112").checked==true) {
+  document.getElementById("mr101").disabled = false;
+  document.getElementById("mr111").disabled = false;
+}
+}
+
+
+function disable10() {
+  document.getElementById("mr111").disabled = true;
+
+  document.getElementById("mr111").checked = false;
+}
+
+function undisable10() {
+ if (document.getElementById("mr112").checked==true) {
+  document.getElementById("mr111").disabled = false;
+} 
+}
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+	<div class=a>
+  <p align="justify" style="font-size: 17px;">{% if participant.vars.time == "delay" %}Zum Schluss des heutigen Teils{% else %}Bevor sie die Dekodierungsaufgabe mit positiven Umweltauswirkungen bearbeiten werden{% endif %} bitten wir Sie noch sich zwischen elf Auszahlungsalternativen zu entscheiden. In der Tabelle sehen Sie stets zwei verschiedene Auszahlungsvarianten. Wir bitten Sie sich in allen elf Reihen für jeweils eine der beiden Auszahlungsalternativen zu entscheiden. Der Begriff "Gesamtbetrag" in der Tabelle bezieht sich auf die gesamte Auszahlung aus dieser Studie, welche durchschnittlich bei 20€ liegen wird. </p>
+  </div>
+
+  <p id="mes" style="font:10px !important;">Beachten Sie: Um die Konsistenz Ihrer Angaben zu gewährleisten, können Sie, sobald Sie in einer oberen Auswahl Alternative 2 gewählt haben, in einer unteren Auswahl nicht mehr Alternative 1 wählen.</p>
+	
+<div class=a style="font-size: 17px;"> 
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          <tr class=border>
+            <td valign="center" colspan=2 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ; border-right: 1px solid;"><strong>Alternative 1</strong></td>
+            <td valign="center" colspan=3 align="center" width="50%" style="border-bottom: 1px solid ; border-top: 1px solid ;"><strong>Alternative 2</strong></td>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now1 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr11" onclick="undisable1()" name="ptoday1" value=5.25 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio"  label="" name="ptoday1" onclick="disable1()" id="mr12" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now2 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr21" name="ptoday2" onclick="undisable2()" value=5.5 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr22" name="ptoday2" onclick="disable2()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+            </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now3 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr31" onclick="undisable3()" name="ptoday3" value=5.75 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr32" name="ptoday3" onclick="disable3()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now4 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr41" onclick="undisable4()" name="ptoday4" value=6 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr42" name="ptoday4" onclick="disable4()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now5 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr51" onclick="undisable5()" name="ptoday5" value=6.25 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr52" name="ptoday5" onclick="disable5()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now6 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr61" onclick="undisable6()" name="ptoday6" value=6.5 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr62" name="ptoday6" onclick="disable6()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now7 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr71" onclick="undisable7()" name="ptoday7" value=6.75 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr72" name="ptoday7" onclick="disable7()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now8 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr81" onclick="undisable8()" name="ptoday8" value=7 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr82" name="ptoday8" onclick="disable8()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now9 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr91" onclick="undisable9()" name="ptoday9" value=7.25 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr92" name="ptoday9" onclick="disable9()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now10 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" label="" id="mr101" onclick="undisable10()" name="ptoday10" value=7.5 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" label="" id="mr102" name="ptoday10" onclick="disable10()" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center" width="35%">5€ heute und {{ now11 }} in einer Woche</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" onclick="show1()"  label="" id="mr111" name="ptoday11" value=7.75 required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" id="mr112" onclick="hide1()" label="" name="ptoday11" value=0 required/></td>
+            <td valign="center" align="center" width="35%">0€ heute und {{ wee }} in einer Woche</td>
+          </tr>
+          
+          </tr>
+            <tr id=addit>
+            <td valign="center" colspan=5 align="left" >Anderer Betrag (ausgezahlt in einer Woche) zu dem Sie bereit wären heute auf 5€ zu verzichten und dafür nächste Woche den Gesamtbetrag ausgezahlt zu bekommen:<input type="text" name="alter3" /></td>           
+          </tr>        
+        </thead>
+    </table>
+
+</div>
+    <br>
+    <br>
+
+
+    {% next_button %}
+
+{% endblock %}

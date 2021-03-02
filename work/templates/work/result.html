@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Durchführungsversion der Aufgabe
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 5px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p align="justify">Es wurde folgende Durchführungsmodifikation zufällig für Sie ausgewählt:</p><br>
+Sie werden die Durchführungsmodifikation <strong>{{ modi }}</strong> bearbeiten.<br><br>
+Bitte klicken Sie nun auf "Weiter".<br><br>
+</div>
+
+
+    {% next_button %}
+
+{% endblock %}

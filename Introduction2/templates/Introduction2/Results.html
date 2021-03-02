@@ -1,0 +1,411 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+    Ihr Ergebnis:
+{% endblock %}
+{% block styles %}
+<style type="text/css">
+.c{
+        padding-top: 5px ;
+        padding-bottom: 5px ;
+    }
+
+img.im2 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 1px ;
+}
+
+.bottom {
+  position:fixed;
+  bottom:0;
+  text-align: right;
+}
+
+tr.size td { 
+   font-size: 90px !important; 
+}
+
+ </style>
+ {% endblock %} 
+{% block content %}
+{% if participant.vars.type == 'noenvi' %}
+<div class="c">   
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+            <td width="40px" align="left" height="90px" colspan==2><p><strong><font size="3">Sie habend {{ player.TreeCount }} Aufgaben gelöst!</font></strong></p></td>
+            </tr>
+            <tr>
+              {% if player.round_number == 1 and player.TreeCount == 0 %}
+              <td width="40px" align="left" height="90px" colspan==2><p><strong><font size="3">Sie erhalten 12€. </font></strong></p></td>
+              {% else %}
+              <td width="40px" align="left" height="90px" colspan==2><p><strong><font size="3">Sie erhalten {{ player.payoff }}. </font></strong></p></td>
+              {% endif %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="c">   
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+              {% if player.TreeCount == 0 %}
+              {% elif player.TreeCount == 0.5 %}
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 1 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 1.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 2 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 2.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 3 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 3.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 4 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 4.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 5.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 6 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 6.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 7 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 7.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 8 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 8.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+               <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>   
+              {% elif player.TreeCount == 9 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+                <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 9.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 10 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 10.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 11 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 11.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 12 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 12.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 13 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 13.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 14 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% elif player.TreeCount == 14.5 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="20px" align="left" height="90px"><img src="{% static "pebs/tree2.png" %}" style="width:50px;height:120px;"/></td>
+              {% elif player.TreeCount == 15 %} 
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              </tr>
+              <tr>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              <td width="40px" align="left" height="90px"><img src="{% static "pebs/tree.png" %}" style="width:100px;height:120px;"/></td>
+              {% endif %} 
+            </tr>
+        </tbody>
+    </table>
+  <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+            {% if player.TreeCount == 0 %}
+            <td width="40px" align="left" height="90px" colspan=2 ><p><strong><font size="3">Sie habend keine Bäume geplanzt!</font></strong></p></td>
+            {% else %}
+            	<td  align="left" colspan=2 ><p><strong><font size="5"><br>Sie haben die Pflanzung von {{ player.TreeCount }} Bäumen in dem Projekt in Nawalparasi finanziert!</font></strong></p></td>
+            </tr>
+            <tr>
+            <td  align="left" colspan=2 ><p><strong><p><font size=3><strong>
+              Die gesammelten Spenden für das Pojekt können Sie unter ............ nachverfolgen.</font></strong></p></td>
+              </tr>
+              {% endif %}
+            <tr>
+              <td width="100%" height="90px" style="vertical-align: top; text-align: left"><p><strong><font size="3">Die Aufgabe wurde nach dem Ablauf der vorgegebenen Zeit beendet.</font></strong></p></td>
+              
+            {% if participant.vars.type == 'lowmon' %}
+            </tr>
+            <tr>
+              {% if player.round_number == 1 and player.TreeCount == 0 %}
+              <td width="40px" align="left" height="90px" colspan=2><p><strong><font size="3">Sie erhalten XXXXXXX€. </font></strong></p></td>
+              {% else %}
+              <td width="40px" align="left" height="90px" colspan=2><p><strong><font size="3">Sie erhalten zusätzliche {{ player.wage }} für das Lösen der Aufgaben. Somit beträgt Ihre momentane Auszahlung {{ player.payoff }}.</font></strong></p></td>
+              </tr>
+              {% endif %}
+            
+            {% elif participant.vars.type == 'highmon' %}
+            <tr>
+              {% if player.round_number == 1 and player.TreeCount == 0 %}
+              <td width="40px" align="left" height="90px" ><p><strong><font size="3">Sie erhalten XXXXXXX€. </font></strong></p></td>
+              {% else %}
+              <td width="40px" align="left" height="90px" ><p><strong><font size="3">Sie erhalten zusätzliche {{ player.wage }} für das Lösen der Aufgaben. Somit beträgt Ihre momentane Auszahlung {{ player.payoff }}.</font></strong></p></td>
+              {% endif %}
+            </tr>
+            {% else %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+            <td width="30%" style="vertical-align: bottom; text-align: left" >    {% next_button %} </td>
+            <td width="70%" style="vertical-align: bottom; text-align: right" >{% if participant.vars.type == 'noenvi' %}{% elif player.TreeCount == 0 %}{% else %}<img class=im2 src="{% static "pebs/Thanks2.png" %}" "/> {% endif %}</td>
+            </tr>
+     </tbody>
+    </table>       
+
+{% endif %}
+
+{% endblock %}
+
+

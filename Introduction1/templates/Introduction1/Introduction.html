@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Willkommen
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+      input[type='radio'] { transform: scale(1.3); }
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p>Willkommen zu dieser wissenschaflichen Studie.</p>
+</div>
+<div class=b>
+<p align="justify"> Vorab finden Sie hier die wichtigsten Eckpunkte:</p>
+</div>
+<div class=c>
+<p>Die Studie bestehe das zwei Teilen.</p>
+
+<ul>
+    <li>Teil 1 wird heute durchgeführt.</li>
+    <li>Teil 2 wird nächste Woche zu selbiger Uhrzeit durchgeführt.</li>
+    <li>Die Bearbeitung des heutigen Teiles wird {% if participant.vars.time == "immi" %}ca. 45 Minuten{% else %}ca. 60 Minuten{% endif %} dauern.</li>
+</ul>
+Vergütung:
+<ul>
+    <li>Sie erhalten durchschnittlich 20€, wenn Sie die heutige Teilnahme und die Teilnahme nächste Woche vollständig abschließen.</li>
+    <li>Diese setzen sich zusammen aus einer Teilnahmevergütung von 17€ und einer variablen Vergütung von durchschnittlich 3€</li>
+</ul>
+</div>
+
+<div class=b>
+<p align="justify">
+Falls Ihnen die Bearbeitung von Teil 2 in dem vorgegebenen Zeitraum nicht möglich ist, geben Sie dies bitte unten an.</p>
+</div>
+{% formfield player.notime label="" %}
+<br>
+
+
+    {% next_button %}
+
+{% endblock %}

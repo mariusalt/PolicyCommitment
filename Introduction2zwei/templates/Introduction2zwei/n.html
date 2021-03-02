@@ -1,0 +1,107 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %}
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=a>
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">Die Version "Performancevergleich" ist eine Erweiterung der Basisversion. Ihnen wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der Person im oberen 25% Percentil gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+</div>
+
+    <button class="answer btn btn-success" >Weiter</button>
+{% endblock %}

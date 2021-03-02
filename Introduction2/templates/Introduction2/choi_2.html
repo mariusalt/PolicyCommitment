@@ -1,0 +1,1611 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Entscheidung
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+
+     input[type='radio'] { transform: scale(1.3); }
+
+.d{
+        padding-top: 10px ;
+        padding-bottom: 0px ;
+    }
+#button {
+  position:absolute;
+  left:68%;
+  bottom:-10%;
+  width:38%;
+  -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+  background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+  background-color:#b7bac2;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #7c7f87;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:5px 76px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #1c2847;
+  }
+  #button:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #button:active {
+  position:absolute;
+  left:68%;
+  bottom:-10%;
+  }
+
+#button1 {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #button1:hover {
+  background-color:#3c5ccf;
+  }
+  #button1:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+
+
+  #button2 {
+  position:absolute;
+  left:80%;
+  bottom:-42%;
+  -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+  background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+  background-color:#b7bac2;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #7c7f87;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:5px 76px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #1c2847;
+  }
+  #button2:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #button2:active {
+  position:absolute;
+  left:80%;
+  bottom:-42%;
+  }
+
+  #cont1{
+    position: absolute;
+    left:72%;
+    bottom:-36%;
+  }
+
+
+  mark {
+  display:inline-block;
+  background-color: #38cb84;
+}
+  img.im6 {
+  max-width:100%;
+  max-height:100%;
+}
+  img.im7 {
+  max-width:100%;
+  max-height:100%;
+}
+  #items{
+    height:50px;
+    width:100%;
+    margin-bottom: 30px;
+  }
+
+  #rem{
+    position: absolute;
+    top: 0%;
+    left: 70%;
+  }
+
+
+.d{
+        padding-top: 10px ;
+
+    }
+
+.dec{
+    font-size: 20px;
+    width:65%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding-left:20px;
+    padding-bottom:40px;
+    padding-right:40px;
+}
+#versionni{
+    position: absolute;
+    top: 13%;
+    left: 70%;
+    border-style: dotted;
+    border-color: gray;
+    width:30%;
+}
+
+
+#versionmo{
+    position: absolute;
+    top: 56%;
+    left: 70%;
+    border-style: dotted;
+    border-color: gray;
+    width:30%;
+}
+
+
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+}
+img.im2 {
+  max-width:100%;
+  max-height:100%;
+}
+img.im3 {
+  max-width:100%;
+  max-height:100%;
+}
+img.im4 {
+  max-width:100%;
+  max-height:100%;
+}
+
+.box{
+  z-index: 99;
+  position:relative;
+  height: 480px;
+}
+
+#mes{
+  width:65%;
+  margin-bottom: 30px;
+}
+.centerTable1{
+  z-index: 99;
+  position:relative;
+  left:13%;
+
+}
+
+</style>
+  </style>
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" type="text/javascript"> 
+    
+    document.getElementById("cont").style.display="none";
+    document.getElementById("cont1").style.display="none";
+      function showhide()
+    {
+        var div = document.getElementById("cont");
+    if (div.style.display === "none") {
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+      }
+
+      var div1 = document.getElementById("cont1");
+    if (div1.style.display === "none") {
+        div1.style.display = "block";
+      } else {
+        div1.style.display = "none";
+      }
+    } 
+
+   document.getElementById("addit").style.display="none";
+      function show1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide1()
+    {
+        var table = document.getElementById("addit");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+
+  document.getElementById("addit1").style.display="none";
+      function show2()
+    {
+        var table = document.getElementById("addit1");
+     if (table.style.display === "none") {
+        table.style.display = "block";
+      } 
+    } 
+    function hide2()
+    {
+        var table = document.getElementById("addit1");
+     if (table.style.display === "block")
+     {
+        table.style.display = "none";
+      }
+    } 
+    
+
+function disable1() {
+  document.getElementById("mr21").disabled = true;
+  document.getElementById("mr31").disabled = true;
+  document.getElementById("mr41").disabled = true;
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr21").checked = false;
+  document.getElementById("mr31").checked = false;
+  document.getElementById("mr41").checked = false;
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+
+function undisable1() {
+  if (document.getElementById("mr22").checked==true){
+  document.getElementById("mr21").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr22").checked==false && document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr21").disabled = false;
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable2() {
+  document.getElementById("mr31").disabled = true;
+  document.getElementById("mr41").disabled = true;
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr31").checked = false;
+  document.getElementById("mr41").checked = false;
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable2() {
+  if (document.getElementById("mr32").checked==true) {
+  document.getElementById("mr31").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+} else if ( document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr32").checked==false && document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr31").disabled = false;
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable3() {
+  document.getElementById("mr41").disabled = true;
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr41").checked = false;
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable3() {
+if (document.getElementById("mr42").checked==true) {
+  document.getElementById("mr41").disabled = false;
+} else if ( document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if ( document.getElementById("mr42").checked==false && document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr41").disabled = false;
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable4() {  
+  document.getElementById("mr51").disabled = true;
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr51").checked = false;
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable4() {
+ if ( document.getElementById("mr52").checked==true) {
+  document.getElementById("mr51").disabled = false;
+} else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if ( document.getElementById("mr52").checked==false && document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr51").disabled = false;
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable5() {
+  document.getElementById("mr61").disabled = true;
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr61").checked = false;
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable5() {
+if (document.getElementById("mr62").checked==true) {
+  document.getElementById("mr61").disabled = false;
+} else if (document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if ( document.getElementById("mr62").checked==false && document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr61").disabled = false;
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable6() {
+  document.getElementById("mr71").disabled = true;
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr71").checked = false;
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable6() {
+ if (document.getElementById("mr72").checked==true) {
+  document.getElementById("mr71").disabled = false;
+} else if (document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==true) {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr72").checked==false && document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr71").disabled = false;
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable7() {
+  document.getElementById("mr81").disabled = true;
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr81").checked = false;
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable7() {
+ if (document.getElementById("mr82").checked==true) {
+  document.getElementById("mr81").disabled = false;
+}
+else if (document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==true) {
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr82").checked==false && document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr81").disabled = false;
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable8() {
+  document.getElementById("mr91").disabled = true;
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr91").checked = false;
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable8() {
+if (document.getElementById("mr92").checked==true) {
+  document.getElementById("mr91").disabled = false;
+} else if (document.getElementById("mr92").checked==false && document.getElementById("mr102").checked==true) {
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+} else {
+  document.getElementById("mr91").disabled = false;
+  document.getElementById("mr101").disabled = false;
+}
+}
+
+function disable9() {
+  document.getElementById("mr101").disabled = true;
+
+  document.getElementById("mr101").checked = false;
+}
+
+function undisable9() {
+ if (document.getElementById("mr102").checked==true) {
+  document.getElementById("mr101").disabled = false;
+} 
+}
+
+
+
+
+</script>
+
+{% endblock %}
+{% block content %}
+  {% if participant.vars.gr == 2 %}<strong>Treffen Sie die folgende Auwahl für den Fall, dass Sie mit einer anderen Person in einer Gruppe sein werden<br>(Gruppengröße = 2 Personen).</strong><br>
+  {% elif participant.vars.gr == 4 %}<strong>Treffen Sie die folgende Auwahl für den Fall, dass Sie mit drei anderen Personen in einer Gruppe sein werden<br>(Gruppengröße = 4 Personen).</strong><br>
+  {% else %}{% endif %}
+<div class=d>
+<p style="font-size: 17px;" align="justify">Nachdem Sie uns Ihre Präferenzen bezüglich der Versionen mitgeteilt haben, sollen Sie im Folgenden vier Tabellen ausfüllen. In den Tabellen sollen Sie darüber entscheiden, mit welchem Geldbetrag Sie entschädigt werden müssten, damit Sie anstelle Ihrer ersten Präferenz ({{ first }}) in der Dekodierungsaufgabe eine andere Version bearbeiten würden. In der unteren Tabelle ist Ihre 1. Präferenz ({{ first }}) und Ihre 2. Präferenz ({{ second }}) jeweils gegenübergestellt. Während die oberste Zeile keine zusätzliche Auszahlung vorsieht, wenn Sie Ihre 2. Präferenz wählen, erhöht sich der zusätzliche Auszahlungsbetrag im Falle der Wahl der 2. Präferenz sukzessiv. Bitte treffen Sie in jeder Zeile eine Entscheidung. Sobald alle vier Tabellen ausgefüllt sind, wird eine Auswahl (Zeile) zufällig ausgewählt. Ist in dieser Zeile {{ first }} ausgewählt, werden Sie diese bearbeiten. Ist {{ second }} ausgewählt, werden Sie diese bearbeiten und den jeweilig Geldbetrag zusätzlich ausgezahlt bekommen.</p><br>
+</div>
+
+ <p id="mes" style="font:10px !important;">Beachten Sie: Um die Konsistenz Ihrer Angaben zu gewährleisten, können Sie, sobald Sie in einer oberen Auswahl {{ second }} gewählt haben, in einer unteren Auswahl nicht mehr {{ first }} wählen.</p>
+
+<div class="box">
+<div class="dec">
+
+   <p>Bitte entscheiden Sie sich, für jeweils eine Option:</p>
+    <table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+          <tr class=border>
+            <td valign="center" colspan=2 align="center" width="40%" style="border-bottom: 1px solid ; border-top: 1px solid; border-right: 1px solid;">{{ first }}</td>
+            <td valign="center" colspan=3 align="center" width="40%" style="border-bottom: 1px solid ; border-top: 1px solid ;">{{ second }}</td>
+          </tr>
+          <tr class=border>
+            <td valign="center" align="center" width="15%">{{ first }}</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" id="mr11" onclick="hide2();undisable1()" label="" name="first1" value='{{ first }}' required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" id="mr12" label="" onclick="show2();disable1()" name="first1" value='{{ second }}' required/></td>
+            <td valign="center" align="left" width="20%">+ 0,00€ zusätzlich</td>
+            <td valign="center" align="center" width="15%">{{ second }}</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" id="mr21"  onclick="undisable2()" label="" name="first2" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr22" onclick="disable2()"  name="first2" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+ 0,10€ zusätzlich</td>
+            <td valign="center" align="center" >{{ second }}</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" id="mr31" onclick="undisable3()"  label="" name="first3" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr32" onclick="disable3()"  name="first3" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+ 0,25€ zusätzlich</td>
+            <td valign="center" align="center" >{{ second }}</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" id="mr41" onclick="undisable4()"  label="" name="first4" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr42"  onclick="disable4()"  name="first4" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+ 0,50€ zusätzlich</td>
+           <td valign="center" align="center" >{{ second }}</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" id="mr51" label="" onclick="undisable5()" name="first5" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr52"  onclick="disable5()"  name="first5" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+ 0,75€ zusätzlich</td>
+            <td valign="center" align="center" >{{ second }}</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" id="mr61" onclick="undisable6()"  label="" name="first6" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr62"  onclick="disable6()"  name="first6" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+ 1,00€ zusätzlich</td>            
+            <td valign="center" align="center" >{{ second }}</td>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center" width="5%" style="border-right: 1px solid ;"><input type="radio" onclick="undisable7()"  id="mr71" label="" name="first7" value='{{ first }}' required/></td>
+            <td valign="center" align="center" width="5%"><input type="radio" id="mr72" onclick="disable7()"  label="" name="first7" value='{{ second }}' required/></td>
+            <td valign="center" align="left">+ 1,50€ zusätzlich</td>
+            <td valign="center" align="center">{{ second }}</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center"  style="border-right: 1px solid ;"><input type="radio" label="" onclick="undisable8()"  id="mr81" name="first8" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr82" onclick="disable8()"  name="first8" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+ 2.00€ zusätzlich</td>
+            <td valign="center" align="center" >{{ second }}</td>
+            
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" onclick="undisable9()"  id="mr91" name="first9" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr92" onclick="disable9()"  name="first9" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+ 3.00€ zusätzlich</td>
+            <td valign="center" align="center" >{{ second }}</td>
+          </tr>
+          </tr>
+            <tr class=border>
+            <td valign="center" align="center">{{ first }}</td>
+            <td valign="center" align="center" style="border-right: 1px solid ;" ><input type="radio" label="" onclick="show1()"  id="mr101" name="first10" value='{{ first }}' required/></td>
+            <td valign="center" align="center" ><input type="radio" label="" id="mr102" onclick="hide1()"  name="first10" value='{{ second }}' required/></td>
+            <td valign="center" align="left" >+5,00€ zusätzlich</td>
+            <td valign="center" align="center" >{{ second }}</td>
+          </tr>
+      </thead>
+</table>
+
+    <table id=addit class="centerTable1" style="border-collapse: collapse; border-style: hidden;"  width = "80%">
+         <thead>
+            <tr>
+            <td valign="center" colspan=6 align="left"   style="font-size: 15px;">Anderer Betrag zu dem Sie bereit wären die {{ second }} zu wählen:<input type="text" name="alter_nu" /></td>
+        </tr>
+        </thead>
+    </table>    
+    <table id=addit1 class="centerTable1" style="border-collapse: collapse; border-style: hidden;"  width = "80%">
+         <thead>            
+          </tr>
+          <tr>
+            <td valign="center" colspan=6 align="left"   style="font-size: 15px;">Anderer Betrag zu dem Sie bereit wären die {{ first }} zu wählen::<input type="text" name="alter_nu" /></td>         
+          </tr>
+        </thead>
+    </table>
+
+
+    </div>
+
+
+     <div id="rem">
+    <strong>Zur Erinnerung hier eine Übersicht der beiden Versionen:</strong>
+  </div>
+  <div id="versionni">
+    <p id="ni"><strong>{{ first }}</strong></p>
+    {% if participant.vars.first == "Version A" %}{% if participant.vars.noinc == 1 %}<img class=im1 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 1 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 1 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 1 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}
+    {% elif participant.vars.first == "Version B" %} {% if participant.vars.noinc == 2 %}<img class=im2 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 2 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 2 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 2 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}
+    {% elif participant.vars.first == "Version C" %}
+    {% if participant.vars.noinc == 3 %}<img class=im3 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 3 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 3 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 3 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}
+    {% elif participant.vars.first == "Version D" %}
+    {% if participant.vars.noinc == 4 %}<img class=im4 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 4 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 4 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 4 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}{% endif %}
+  </div>
+    <div id="versionmo">
+    <p id="mo"><strong>{{ second }}</strong></p>
+    {% if participant.vars.second == "Version A" %}{% if participant.vars.noinc == 1 %}<img class=im1 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 1 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 1 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 1 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}
+    {% elif participant.vars.second == "Version B" %} {% if participant.vars.noinc == 2 %}<img class=im2 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 2 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 2 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 2 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}
+    {% elif participant.vars.second == "Version C" %}
+    {% if participant.vars.noinc == 3 %}<img class=im3 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 3 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 3 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 3 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}
+    {% elif participant.vars.second == "Version D" %}
+    {% if participant.vars.noinc == 4 %}<img class=im4 src="{% static "pebs/Graphforce.png" %}" />{% elif participant.vars.nudge == 4 %}<img class=im2 src="{% static "pebs/nc.png" %}" />{% elif participant.vars.mon == 4 %}<img class=im3 src="{% static "pebs/monnewcut.png" %}" />{% elif participant.vars.punish == 4 %}<img class=im4 src="{% static "pebs/punnew1cut.png" %}" />{% endif %}{% endif %}
+    </div>
+  <div id='button' onclick="showhide()">Beschreibung der Versionen</div>
+  </div>
+  <div id="cont1">
+    siehe unten
+  </div>
+<br>
+
+    <button id="button1" class="answer btn btn-success" onclick="calc1()" >Weiter</button>
+
+
+
+<div id="cont">
+<p style="text-align: center; font-size:20px;"><strong>Anleitung</strong><br></p>
+<p style="text-align: center;">_______________________________________________________________________________________________________________________________________________________________</p>
+<strong>{% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.nudge == 1 %}Version A{% elif participant.vars.mon == 1 %}Version A{% elif participant.vars.punish == 1 %}Version A{% else %}Version A{% endif %}</strong>
+{% if participant.vars.noinc == 1 %}<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 1 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 1 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 1 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version A wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 2 %}Version B{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.punish == 2 %}Version B{% else %}Version B{% endif %}</strong>
+{% if participant.vars.noinc == 2 %}<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 2 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 2 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 2 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version B wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% endif %}
+
+
+
+
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 3 %}Version C{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.punish == 3 %}Version C{% else %}Version C{% endif %}</strong>
+{% if participant.vars.noinc == 3 %}<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 3 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 3 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 3 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version C wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% endif %}
+
+
+
+
+
+<strong>{% if participant.vars.noinc == 4 %}Version D{% elif participant.vars.nudge == 4 %}Version D{% elif participant.vars.mon == 4 %}Version D{% elif participant.vars.punish == 4 %}Version D{% else %}Version D{% endif %}</strong>
+{% if participant.vars.noinc == 4 %}<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der {% if participant.vars.noinc == 1 %}Version A{% elif participant.vars.noinc == 2 %}Version B{% elif participant.vars.noinc == 3 %}Version C{% elif participant.vars.noinc == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Ansonsten enthält diese Version keine weiteren Besonderheiten.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/Graphforce.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+<br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "30%">
+        <tbody>
+            <tr>
+            <td width="20%" style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td width="10%" style="vertical-align: top; text-align: center;" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.nudge == 4 %}
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="58%" style="vertical-align: center; text-align: left" ><p  align="justify">In der {% if participant.vars.nudge == 1 %}Version A{% elif participant.vars.nudge == 2 %}Version B{% elif participant.vars.nudge == 3 %}Version C{% elif participant.vars.nudge == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zudem wird in dieser Version in der Grafik rechts neben dem Aufgabenfeld nicht nur die Anzahl an bereits gepflanzten Bäumen angezeigt, sondern auch <strong>die Performance anderer Teilnehmender</strong> im Vergleich zu der ihrigen. Wie in dem Beispielbild zu erkennen ist, wird Ihnen die Anzahl durchschnittlich gelösten Aufgaben gegeben der Bearbeitungszeit in dem mittleren Balken angegeben und die gelösten Aufgaben der besten 25 Prozent der Teilnehmenden gegeben der Bearbeitungszeit im rechten Balken angezeigt. Somit wissen Sie jederzeit, wie viele Aufgaben andere Teilnehmende zu diesem Zeitpunkt bereits gelöst haben.</p>
+                <td width="42%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/nudge.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+<br>
+      <strong>Details:</strong>
+      <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="40%" colspan=2 style="vertical-align: top; text-align: center" >Anzeige der Performance anderer Tln.: Durchschnitt & Top 25%</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+<p>_________________________________________________________________________</p><br>
+
+
+
+{% elif participant.vars.mon == 4 %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify"><p  align="justify">In der {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie für jede gelöste Aufgabe <strong>einen Bonus von 0,25€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Insgesamt kann die aggregierte Bonuszahlung nicht mehr als 7€ betragen. Ihre Teilnahmevergütung beträgt in dieser Version 12€. Durch das Lösen der Aufgaben können Sie dementsprechend maximial 19€ verdienen. Sie müssen also zwanzig Aufgaben lösen, um 17€ zu verdienen und 28 Aufgaben lösen um die maximale Bonuszahlung zu erlangen. Zum Vergleich: 50% aller Teilnehmenden lösen 20 oder mehr Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p></p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/monnew.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+
+  <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "60%">
+        <tbody>
+            <tr>
+            <td width="30%" colspan=2 style="vertical-align: top; text-align: center" >0,25€ pro gelöster Aufgabe</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td  style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Maximaler aggregierter Bonusbetrag</td>
+            <td  style="vertical-align: top; text-align: center">19€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td  style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+
+{% elif participant.vars.punish == 4 %}
+<div class=f>
+
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="75%" style="vertical-align: top; text-align: left" colspan=4 ><p  align="justify">In der {% if participant.vars.punish == 1 %}Version A{% elif participant.vars.punish == 2 %}Version B{% elif participant.vars.punish == 3 %}Version C{% elif participant.vars.punish == 4 %}Version D{% else %}Version E{% endif %} wird, wie in allen Versionen, für drei gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich wird Ihnen <strong>ein Betrag von 5€ von der Teilnahmevergütung abgezogen, insofern Sie nicht mindestens 10 Aufgaben korrekt bearbeiten</strong>. Zum Vergleich: 100% der bisherigen Teilnehmenden haben mehr als 10 Aufgaben in 8 Minuten gelöst. In den Beispielbildern ist zu sehen, dass Ihnen die Höhe der Abzuges so lange angezeigt wird, bis Sie 10 Aufgaben oder mehr korrekt bearbeitet habe.</p>  wird. </p>
+            </tr>
+            <tr>
+                <td width="25%" style="vertical-align: center; text-align: center;" >Beispiel 1</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 2</td>
+                <td width="25%" style="vertical-align: center; text-align: center" >Beispiel 3</td>
+                <td width="25%" style="vertical-align: center; text-align: center" ></td>
+            </tr>    
+            <tr>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im6 src="{% static "pebs/punnew1.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ><img class=im7 src="{% static "pebs/punnew2.png" %}" /></td>
+            <td  style="vertical-align: center; text-align: left" ></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "50%">
+        <tbody>
+            <tr>
+            <td width="40%" style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben < 10</td>
+            <td width="10%" colspan=2 style="vertical-align: top; text-align: center" >12€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung bei gelösten Aufgaben >= 10</td>
+            <td  colspan=2 style="vertical-align: top; text-align: center" >17€</td>
+            </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center" >8 Min</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>_________________________________________________________________________</p><br>
+{% else %}
+<div class=f>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version D wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. In dieser Version ist <strong>die Aufgabe nicht, wie in den anderen Versionen, nach acht Minuten beendet, sondern erst sobald 20 Aufgaben erfolgreich bearbeitet wurden (bzw. 8 Bäume gepflanzt wurden)</strong>.<br>Zum Vergleich: Die mittlere Performace aus der Gesamtheit der bisherigen Teilnehmenden liegt bei 15 Aufgaben in 8 Minuten.<br>In dem Beispielbild ist zu erkennen, dass Ihnen ihr Fortschritt beim Erreichen des vorgegeben Ziels jederzeit angezeigt wird.</p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/force.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+  <strong>Details:</strong>
+    <table border=1 class="centerTable" width = "55%">
+        <tbody>
+          <tr>
+            <td  style="vertical-align: top; text-align: left" >Teilnahmevergütung</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >9€</td>
+          </tr>
+            <tr>
+            <td  style="vertical-align: top; text-align: left" >Dauer</td>
+            <td colspan=2 style="vertical-align: top; text-align: center;" >Bis 20 Aufgaben erfolgreich bearbeitet wurden</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endif %}
+<p>&nbsp;</p>
+<p>_________________________________________________________________________________________________________________________________________</p>
+<p>&nbsp;</p>
+<div id='button2' class='a' onclick="showhide()">Schließen</div>
+<p>&nbsp;</p>
+</div>
+
+
+
+{% endblock %}
+
+

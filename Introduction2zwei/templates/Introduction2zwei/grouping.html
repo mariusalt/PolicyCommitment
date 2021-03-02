@@ -1,0 +1,117 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+#buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=a>
+  {% if participant.vars.gr == 2 %}
+<p align="justify"><strong>Im folgenden bitten wir Sie Präferenzangaben bezüglich der Durchführungsversionen zu treffen. Wir bitten Sie diese Präferenzangaben zwei Mal zu tätigen. Einmal für den Fall, dass Sie mit einer weiteren Person in einer Gruppe sind und einmal für den Fall, dass Sie mit drei weiteren Personen in einer Gruppe sind. Sie sind in einer Gruppe mit einer weiteren Person.</strong><br>
+  Beachten Sie, dass ihre Gruppenmitglieder ebenfalls von Ihrer Präferenzauswahl, die Sie auf der folgenden Seite treffen werden, betroffen sein werden.<br><br>
+Nachdem Sie für beide Gruppengrößen eine Auswahl getroffen haben, teilen wir Ihnen mit, mit wie vielen anderen Personen Sie in einer Gruppe sein werden.</p>
+{% else %}
+<p align="justify"><strong>Im folgenden bitten wir Sie Präferenzangaben bezüglich der Durchführungsversionen zu treffen. Wir bitten Sie diese Präferenzangaben zwei Mal zu tätigen. Einmal für den Fall, dass Sie mit drei weiteren Personen in einer Gruppe sind und einmal für den Fall, dass Sie mit einer weiteren Person in einer Gruppe sind. Sie sind in einer Gruppe mit einer weiteren Person.</strong><br>
+  Beachten Sie, dass ihre Gruppenmitglieder ebenfalls von Ihrer Präferenzauswahl, die Sie auf der folgenden Seite treffen werden, betroffen sein werden.<br><br>
+Nachdem Sie für beide Gruppengrößen eine Auswahl getroffen haben, teilen wir Ihnen mit, mit wie vielen anderen Personen Sie in einer Gruppe sein werden.</p>
+{% endif %}
+
+</div>
+    <button id="buttonfin" class="answer btn btn-success" >Weiter zu der Präferenzauswahl</button>
+{% endblock %}
+
+

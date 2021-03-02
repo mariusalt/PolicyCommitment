@@ -1,0 +1,92 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Vorhersage Spendenentscheidung
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+* {
+    font-size: 17px;/* <-- fonts */
+}
+.a{
+        padding-top: 10px ;
+        padding-bottom: 2px ;
+    }
+.b{
+        padding-top: 1px ;
+    }
+.c{
+        padding-bottom: 30px ;
+    }
+img.im1 {
+        max-width:180%;
+        max-height:180%;
+}
+img.im2 {
+        max-width:30%;
+        max-height:30%;
+}
+.input-group{
+        padding-top: 3px ;
+        padding-bottom: 5px ;
+    }
+
+tr.border td {
+  border-top: thin solid black;
+  border-bottom: thin solid black;
+}
+
+tr.border td:first-child {
+  border-left: thin solid black;
+}
+
+tr.border td:last-child {
+  border-right: thin solid black;
+}
+th, td {
+  padding: 10px;
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p>Wie erwähnt, werden Sie die Spendenentscheidung nächste Woche erneut treffen. Bitte geben Sie unten Ihre Vorhersage bezüglich der Spendenentscheidung nächste Woche an. Was vermuten Sie, wie Sie sich nächste Woche entscheiden werden?</p> 
+</div>
+
+
+
+<p>Bitte beachten Sie, dass Ihre Angaben auf eine Stelle nach dem Komma gerundet werden.</p>
+<table border=0  width="60%" >
+        <tbody>
+            <tr>
+               <td width="42%"><p><strong>Spende an<br>WWF:</strong></p></td>
+               <td align="right">{{ form.predWWF }}</td>
+               <td align="left"><span class="input-group-addon">% der Gesamtvergütung</span></td>
+            </tr>
+            <tr>  
+               <td width="42%"><p><strong>Spende an<br>Meere ohne Plastik, NABU:</strong></p></td>
+               <td align="right">{{ form.predMeerPlastik }}</td>
+               <td align="left"><span class="input-group-addon">% der Gesamtvergütung</span></td>
+            </tr>
+            <tr>  
+               <td width="42%"><p><strong>Spende an<br>Mannheimer Tafel:</strong></p></td>
+               <td align="right">{{ form.predMannTafel }}</td>
+               <td align="left"><span class="input-group-addon">% der Gesamtvergütung</span></td>
+            </tr>
+            {{ form.errors }}
+        </tbody>
+    </table>
+    <br>
+
+        <br>
+    <div class=a>
+  <p align="justify">Vielen Dank für die heutige Teilnahme. Bitte erscheinen Sie in einer Woche zur selbigen Uhrzeit, um das Experiment abzuschließen. Klicken Sie nun auf "Weiter", um den heutigen Teil zu beenden.</p>
+  </div>
+
+    {% next_button %}
+
+{% endblock %}

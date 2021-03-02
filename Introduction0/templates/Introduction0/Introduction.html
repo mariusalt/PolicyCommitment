@@ -1,0 +1,70 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Willkommen
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p>Herzlich willkommen zu dieser wissenschaftlichen Studie!</p>
+</div>
+<div class=b>
+<p align="justify">Sehr geehrte Teilnehmerin, sehr geehrter Teilnehmer,
+die Studie wird in Kürze beginnen. Vorab finden Sie hier die wichtigsten Eckpunkte zu Ihrer Teilnahme:</p>
+</div>
+<div class=c>
+<p>Die Studie bestehe das drei Teilen.</p>
+
+<ul>
+    <li>Teil 1 wird heute online durchgeführt.</li>
+    <!--<li>Teil 2 wird bei Ihrem ersten Labortermin durchgeführt.</li>
+    <li>Teil 3 wird bei Ihrem zweiten Labortermin durchgeführt (sieben Tagen darauf).</li>-->
+    <li>Teil 2 wird zu dem registrierten Termin durchgeführt.</li>
+    <li>Teil 3 wird sieben Tage nach Teil 2 durchgeführt. Zur selben Uhrzeit wie der Termin für Teil 2.</li>
+    <li>Die heutige Bearbeitung wird ca. 10 Minuten dauern.</li>
+    <li>Die Bearbeitung der anderen zwei Teile wird jeweils ca. 45 Minuten dauern.</li>
+</ul>
+Vergütung:
+<ul>
+    <!--<li>Insgesamt erhalten Sie durchschnittlich 25€ falls Sie die heutige Teilnahme und die Teilnahmea an den beiden Labortermine erfolgreich abschließen.</li>-->
+    <li>Insgesamt erhalten Sie durchschnittlich 25€ falls Sie alle drei Termine vollständig abgeschlossen haben.</li>
+    <li>Bitte beachten Sie, dass Sie zur Auszahlung Ihrer Vergütung ein Paypal-Konto benötigen. Falls Sie dies nicht besotzen, bitten wir Sie sich ein solches einzurichten.</li>
+</ul>
+</div>
+
+<div class=b>
+<p align="justify">Falls Sie kein Paypal-Konto besitzen und sich auch keines anlegen möchten, können Sie leider nicht an der Studie teilnehmen. In diesem Fall wäre die Studie hiermit für Sie beendet.<br> 
+    Falls Ihnen die Bearbeitung von Teil 2 oder 3 in dem vorgegebenen Zeitraum nicht möglich ist, geben Sie dies bitte unten an. Wir werden in diesem Fall versuchen Ihnen einen Alternativtermin anzubieten.<br>
+</div>
+{% formfield player.notime label="" %}
+<br>
+
+    {% next_button %}
+
+{% endblock %}

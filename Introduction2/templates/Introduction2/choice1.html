@@ -1,0 +1,1204 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Auswahl Teil 2
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript">  
+
+
+var tet = document.getElementById("c1").value;
+var vark = [];
+var varkl
+for(let i = 0; i < 100; ++i){
+    if (tet[i] == "K") {
+        vark.push(i)
+    }
+varkl = vark.length;
+
+}
+
+function change(a){
+var b = "button" + a
+
+if (vark.includes(a)==true) {
+
+if (document.getElementById(b).style.backgroundColor == "gray"){
+
+        document.getElementById(b).style.backgroundColor="transparent";
+        Value = document.getElementById("id_answer").value;
+        console.log(Value--);
+        document.getElementById("id_answer").value = Value;
+        window.sessionStorage.setItem("id_answer", Value);
+        window.sessionStorage.setItem(b, "transparent");
+
+    } else {
+        
+       document.getElementById(b).style.backgroundColor="gray"; 
+       Value = document.getElementById("id_answer").value;
+        console.log(Value++);
+        document.getElementById("id_answer").value = Value;
+        window.sessionStorage.setItem("id_answer", Value);
+        window.sessionStorage.setItem(b, "gray");
+    }
+    }  
+}
+
+
+function changeBackground() {
+    for(let i = 0; i < 100; ++i){
+        var c = "button" + i
+        var col = sessionStorage.getItem(c);
+        document.getElementById(c).style.backgroundColor = col
+        var ans = sessionStorage.getItem("id_answer");
+        if (ans>0){
+        document.getElementById("id_answer").value = ans
+        sessionStorage.clear();
+        document.getElementById("id_answer").value = "";
+    }
+  }
+  }
+
+
+
+
+changeBackground();
+
+
+$('#id_answer').keypress(function(e) {
+    e.preventDefault();
+});
+$("#id_answer").on('keydown',  function(event){
+  var key = event.charCode || event.keyCode || event.which;// alert (key);
+  var char = String.fromCharCode(event.key);
+  if( key === 8 || key=== 46 ){
+    event.preventDefault();
+    return false;
+  } else {    
+    $("#id_answer").append(char);
+  }
+});
+
+$(document).on("wheel", "input[type=number]", function (e) {
+    $(this).blur();
+});
+
+
+document.getElementById('id_answer').disabled;
+
+function checkit() {
+    Value = document.getElementById("aa1").value;
+    console.log(Value++);
+    document.getElementById("aa1").value = Value;
+  if (document.getElementById("id_answer").value == varkl) {
+    document.getElementById("check").innerHTML = "korrekt";
+    document.getElementById("check").style.backgroundColor = "lightgreen";
+    document.getElementById("check").style.width = "52%";
+
+  } else {
+    document.getElementById("check").innerHTML = "nicht korrekt"
+    document.getElementById("check").style.backgroundColor = "orange";
+    document.getElementById("check").style.width = "52%";
+    document.getElementById("check").style.align = "center";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var slider1 = document.getElementById("slider1");
+var output1 = document.getElementById("show1");
+var time1 = document.getElementById("time1");
+var at1 = document.getElementById("at1");
+var tree1 = document.getElementById("tree1");
+
+var val1;
+
+slider1.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time1.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output1.innerHTML = this.value + " Aufgaben";
+  val1=this.value;
+  $('.slider1').addClass('myclass');
+  if (this.value == 1) {
+  tree1.innerHTML = Math.round(this.value*14)/100 + "€";
+} else {
+  tree1.innerHTML = Math.round(this.value*14)/100 + "€";
+}
+}
+
+at1.oninput = function() {
+  if (isNaN(val1)==true){} else {
+  v1min = Math.floor((this.value*val1)/60)
+  v1sec = Math.round(((this.value*val1)/60-Math.floor((this.value*val1)/60))*60)
+  time1.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+}
+if (isNaN(val2)==true){} else {
+  v2min = Math.floor((this.value*val2)/60)
+  v2sec = Math.round(((this.value*val2)/60-Math.floor((this.value*val2)/60))*60)
+  time2.innerHTML="Benötigte Zeit: " + v2min + " Min. " + v2sec + " Sek.";
+}
+  if (isNaN(val3)==true){} else {
+  v3min = Math.floor((this.value*val3)/60)
+  v3sec = Math.round(((this.value*val3)/60-Math.floor((this.value*val3)/60))*60)
+  time3.innerHTML="Benötigte Zeit: " + v3min + " Min. " + v3sec + " Sek.";
+}
+  if (isNaN(val4)==true){} else {
+  v4min = Math.floor((this.value*val4)/60)
+  v4sec = Math.round(((this.value*val4)/60-Math.floor((this.value*val4)/60))*60)
+  time4.innerHTML="Benötigte Zeit: " + v4min + " Min. " + v4sec + " Sek.";
+}
+  if (isNaN(val5)==true){} else {
+  v5min = Math.floor((this.value*val5)/60)
+  v5sec = Math.round(((this.value*val5)/60-Math.floor((this.value*val5)/60))*60)
+  time5.innerHTML="Benötigte Zeit: " + v5min + " Min. " + v5sec + " Sek.";
+}
+}
+function updateTextInput1(val1) {
+          document.getElementById('textInput1').value=val1;
+          }
+
+
+
+var slider2 = document.getElementById("slider2");
+var output2 = document.getElementById("show2");
+var time2 = document.getElementById("time2");
+var tree2 = document.getElementById("tree2");
+
+var val2;
+
+slider2.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time2.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output2.innerHTML = this.value + " Aufgaben";
+  val2=this.value;
+  $('.slider2').addClass('myclass');
+    if (this.value == 1) {
+  tree2.innerHTML = Math.round(this.value*12)/100 + "€";
+} else {
+  tree2.innerHTML = Math.round(this.value*12)/100 + "€";
+}
+}
+
+function updateTextInput2(val2) {
+          document.getElementById('textInput2').value=val2;
+          }
+
+
+
+
+
+
+
+
+var slider3 = document.getElementById("slider3");
+var output3 = document.getElementById("show3");
+var time3 = document.getElementById("time3");
+var tree3 = document.getElementById("tree3");
+
+var val3;
+
+slider3.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time3.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output3.innerHTML = this.value + " Aufgaben";
+  val3=this.value;
+  $('.slider3').addClass('myclass');
+  if (this.value == 1) {
+  tree3.innerHTML = Math.round(this.value*10)/100 + "€";
+} else {
+  tree3.innerHTML = Math.round(this.value*10)/100 + "€";
+}
+}
+
+
+function updateTextInput3(val3) {
+          document.getElementById('textInput3').value=val3;
+          }
+
+
+
+
+
+
+
+
+
+
+var slider4 = document.getElementById("slider4");
+var output4 = document.getElementById("show4");
+var time4 = document.getElementById("time4");
+var tree4 = document.getElementById("tree4");
+
+var val4;
+
+slider4.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time4.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output4.innerHTML = this.value + " Aufgaben";
+  val4=this.value;
+  $('.slider4').addClass('myclass');
+    if (this.value == 1) {
+  tree4.innerHTML = Math.round(this.value*8)/100 + "€";
+} else {
+  tree4.innerHTML = Math.round(this.value*8)/100 + "€";
+}
+}
+
+
+function updateTextInput4(val4) {
+          document.getElementById('textInput4').value=val4;
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+var slider5 = document.getElementById("slider5");
+var output5 = document.getElementById("show5");
+var time5 = document.getElementById("time5");
+var tree5 = document.getElementById("tree5");
+
+var val5;
+
+slider5.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time5.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output5.innerHTML = this.value + " Aufgaben";
+  val5=this.value;
+$('.slider5').addClass('myclass');
+  if (this.value == 1) {
+  tree5.innerHTML = Math.round(this.value*6)/100 + "€";
+} else {
+  tree5.innerHTML = Math.round(this.value*6)/100 + "€";
+}
+}
+
+
+function updateTextInput5(val5) {
+          document.getElementById('textInput5').value=val5;
+          }
+
+
+
+
+        </script>
+</script>
+{% endblock %}
+
+
+{% block styles %}
+  <style type="text/css">
+#button {
+    -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+    background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+    background-color:#b7bac2;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #7c7f87;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    padding:5px 76px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #1c2847;
+    }
+    #button:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+    background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+    background-color:#7c858f;
+    }
+    #button:active {
+    position:relative;
+    top:1px;
+    }
+
+
+    .but1:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+    background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+    background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+    background-color:#7c858f;
+    }
+    .but1:active {
+    position:relative;
+    top:1px;
+    }
+
+
+
+
+.z{
+        padding-top: 10px ;
+        padding-bottom: 40px ;
+    }
+
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider1 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider1:focus {
+    outline: none;
+}
+
+.slider1::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider1::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider1 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider1::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider1::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider2 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider2:focus {
+    outline: none;
+}
+
+.slider2::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider2::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider2 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider2::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider2::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+#buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider3 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider3:focus {
+    outline: none;
+}
+
+.slider3::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider3::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider3 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider3::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider3::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider4 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider4:focus {
+    outline: none;
+}
+
+.slider4::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider4::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider4 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider4::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider4::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider5 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider5:focus {
+    outline: none;
+}
+
+.slider5::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider5::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider5 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider5::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider5::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+#b1 {
+  -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+  background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+  background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+  background-color:#b7bac2;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #7c7f87;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  padding:5px 76px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #1c2847;
+  }
+  #b1:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #b1:active {
+  position:relative;
+  top:1px;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=a>
+<p align="justify">Am Ende des zweiten Termins in einer Woche haben Sie die Möglichkeit mittels einer Zusatzaufgabe zusätzliches Geld zu verdienen. In der Zusatzaufgabe geht es darum, dass Sie alle Buchstaben "K" in einer Tabelle finden und anklicken. Der Zähler rechts neben der Tabelle zeigt Ihnen an, wie viele Buchstaben "K" Sie bereits gefunden haben. Sobald Sie alle "K"s gefunden haben, klicken Sie auf "Antworten". Probieren Sie gerne die Probeaufgabe aus.<br>
+</p>
+<strong>freiwillige Probeaufgabe:</strong>
+
+<table border=0 class="centerTable" width = "70%">
+        <tbody>
+            <tr>
+                <td width = "70%" vertical-align="center" align="left">
+    <table border=1 class="centerTable" width = "90%">
+        <tbody>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button0' class="but1" onclick="change(0)">{{ A0 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button1' class="but1" onclick="change(1)">{{ A1 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button2' class="but1" onclick="change(2)">{{ A2 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button3' class="but1" onclick="change(3)">{{ A3 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button4' class="but1" onclick="change(4)">{{ A4 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button5' class="but1" onclick="change(5)">{{ A5 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button6' class="but1" onclick="change(6)">{{ A6 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button7' class="but1" onclick="change(7)">{{ A7 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button8' class="but1" onclick="change(8)">{{ A8 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button9' class="but1" onclick="change(9)">{{ A9 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button10' class="but1" onclick="change(10)">{{ A10 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button11' class="but1" onclick="change(11)">{{ A11 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button12' class="but1" onclick="change(12)">{{ A12 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button13' class="but1" onclick="change(13)">{{ A13 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button14' class="but1" onclick="change(14)">{{ A14 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button15' class="but1" onclick="change(15)">{{ A15 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button16' class="but1" onclick="change(16)">{{ A16 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button17' class="but1" onclick="change(17)">{{ A17 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button18' class="but1" onclick="change(18)">{{ A18 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button19' class="but1" onclick="change(19)">{{ A19 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button20' class="but1" onclick="change(20)">{{ A20 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button21' class="but1" onclick="change(21)">{{ A21 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button22' class="but1" onclick="change(22)">{{ A22 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button23' class="but1" onclick="change(23)">{{ A23 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button24' class="but1" onclick="change(24)">{{ A24 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button25' class="but1" onclick="change(25)">{{ A25 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button26' class="but1" onclick="change(26)">{{ A26 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button27' class="but1" onclick="change(27)">{{ A27 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button28' class="but1" onclick="change(28)">{{ A28 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button29' class="but1" onclick="change(29)">{{ A29 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button30' class="but1" onclick="change(30)">{{ A30 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button31' class="but1" onclick="change(31)">{{ A31 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button32' class="but1" onclick="change(32)">{{ A32 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button33' class="but1" onclick="change(33)">{{ A33 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button34' class="but1" onclick="change(34)">{{ A34 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button35' class="but1" onclick="change(35)">{{ A35 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button36' class="but1" onclick="change(36)">{{ A36 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button37' class="but1" onclick="change(37)">{{ A37 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button38' class="but1" onclick="change(38)">{{ A38 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button39' class="but1" onclick="change(39)">{{ A39 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button40' class="but1" onclick="change(40)">{{ A40 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button41' class="but1" onclick="change(41)">{{ A41 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button42' class="but1" onclick="change(42)">{{ A42 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button43' class="but1" onclick="change(43)">{{ A43 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button44' class="but1" onclick="change(44)">{{ A44 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button45' class="but1" onclick="change(45)">{{ A45 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button46' class="but1" onclick="change(46)">{{ A46 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button47' class="but1" onclick="change(47)">{{ A47 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button48' class="but1" onclick="change(48)">{{ A48 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button49' class="but1" onclick="change(49)">{{ A49 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button50' class="but1" onclick="change(50)">{{ A50 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button51' class="but1" onclick="change(51)">{{ A51 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button52' class="but1" onclick="change(52)">{{ A52 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button53' class="but1" onclick="change(53)">{{ A53 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button54' class="but1" onclick="change(54)">{{ A54 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button55' class="but1" onclick="change(55)">{{ A55 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button56' class="but1" onclick="change(56)">{{ A56 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button57' class="but1" onclick="change(57)">{{ A57 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button58' class="but1" onclick="change(58)">{{ A58 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button59' class="but1" onclick="change(59)">{{ A59 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button60' class="but1" onclick="change(60)">{{ A60 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button61' class="but1" onclick="change(61)">{{ A61 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button62' class="but1" onclick="change(62)">{{ A66 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button63' class="but1" onclick="change(63)">{{ A63 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button64' class="but1" onclick="change(64)">{{ A64 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button65' class="but1" onclick="change(65)">{{ A65 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button66' class="but1" onclick="change(66)">{{ A66 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button67' class="but1" onclick="change(67)">{{ A67 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button68' class="but1" onclick="change(68)">{{ A68 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button69' class="but1" onclick="change(69)">{{ A69 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button70' class="but1" onclick="change(70)">{{ A70 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button71' class="but1" onclick="change(71)">{{ A71 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button72' class="but1" onclick="change(72)">{{ A72 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button73' class="but1" onclick="change(73)">{{ A73 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button74' class="but1" onclick="change(74)">{{ A74 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button75' class="but1" onclick="change(75)">{{ A75 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button76' class="but1" onclick="change(76)">{{ A76 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button77' class="but1" onclick="change(77)">{{ A77 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button78' class="but1" onclick="change(78)">{{ A78 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button79' class="but1" onclick="change(79)">{{ A79 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button80' class="but1" onclick="change(80)">{{ A80 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button81' class="but1" onclick="change(81)">{{ A81 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button82' class="but1" onclick="change(82)">{{ A82 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button83' class="but1" onclick="change(83)">{{ A83 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button84' class="but1" onclick="change(84)">{{ A84 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button85' class="but1" onclick="change(85)">{{ A85 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button86' class="but1" onclick="change(86)">{{ A86 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button87' class="but1" onclick="change(87)">{{ A87 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button88' class="but1" onclick="change(88)">{{ A88 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button89' class="but1" onclick="change(89)">{{ A89 }}</div></td>
+                            </tr>
+            <tr>
+                <td width="(10)%" align="center" height="34px"><div id='button90' class="but1" onclick="change(90)">{{ A90 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button91' class="but1" onclick="change(91)">{{ A91 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button92' class="but1" onclick="change(92)">{{ A92 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button93' class="but1" onclick="change(93)">{{ A93 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button94' class="but1" onclick="change(94)">{{ A94 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button95' class="but1" onclick="change(95)">{{ A95 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button96' class="but1" onclick="change(96)">{{ A96 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button97' class="but1" onclick="change(97)">{{ A97 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button98' class="but1" onclick="change(98)">{{ A98 }}</div></td>
+                <td width="(10)%" align="center" height="34px"><div id='button99' class="but1" onclick="change(99)">{{ A99 }}</div></td>
+            
+            </tr>
+        </tbody>
+    </table>
+  </td>
+      <td width="30%" style="text-align: center;"><input type="text" name="answer"  id="id_answer" >
+    <div id="b1" style="margin:7px;" onclick="checkit();">Antworten</div>
+    <div id="check" style="text-align: center;" ></div></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>
+<p align="justify">
+In der Zusatzaufgabe bekommen Sie für jede gelöste Tabelle eine Entlohnung (pro korrekter Aufgabe können zwischen 0,14€ und 0,06€). Durch die Nutzung der Schieberegler können Sie selber wählen wie viele Aufgaben Sie gegeben der verschiedenen Entlohnunge nächste Woche bearbeiten möchten. Die Entlohnung pro Aufgabe wird Ihnen links neben den Schiebereglern angezeigt. Zudem wird Ihnen beim anklicken der Schieberegler angezeigt, wie lange Sie durchschnittlich für das Bearbeiten der Aufgaben benötigen werden (basierend auf vorherigen Teilnahmen). Die durchschittliche Bearbeitungsgeschwindigkeit kann in dem angegebenen Feld verändert werden. Ob die Zusatzaufgabe relevant wird und welcher der fünf Schieberegler-Entscheidungen angewandt wird, wird zufällig ausgewählt werden.<br></p>
+<div style="margin-bottom:20px;">
+  <strong>Zu bearbeitende Zusatzaufgaben in Teil 2</strong> <br>
+  Durchschnittliche Bearbeitungsgeschwindigkeit = <input  type="text" class="at1" id="at1" value="25" size="1" style="text-align:center;" onchange="updateText(this.value);"> Sekunden pro Aufgabe<br><br>
+    <table border=0 class="centerTable" width = "100%">
+        <tbody><tr>
+                <td style="vertical-align: center; text-align: left" ><strong>Entlohnung</strong></td>
+                  <td colspan=4 style="vertical-align: center; text-align: center;" > </td>
+                
+                 </tr>
+            <tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,14€ pro Aufgabe:{{ form.dec11.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show1"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider1" id="slider1" type="range"  min="0" max="50" step="1" onchange="updateTextInput1(this.value);"  onclick="showhide1()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree1"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time1"></span>
+              </td>
+            </tr>
+            <tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,12€ pro Aufgabe:{{ form.dec21.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show2"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider2" id="slider2" type="range"  min="0" max="50" step="1" onchange="updateTextInput2(this.value);"  onclick="showhide2()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree2"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time2"></span>
+              </td>
+            </tr><tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,10€ pro Aufgabe:{{ form.dec31.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show3"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider3" id="slider3" type="range"  min="0" max="50" step="1" onchange="updateTextInput3(this.value);"  onclick="showhide3()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree3"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time3"></span>
+              </td>
+            </tr><tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,08€ pro Aufgabe:{{ form.dec41.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show4"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider4" id="slider4" type="range"  min="0" max="50" step="1" onchange="updateTextInput4(this.value);"  onclick="showhide4()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree4"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time4"></span>
+              </td>
+            </tr><tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,06€ pro Aufgabe:{{ form.dec51.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show5"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider5" id="slider5" type="range"  min="0" max="50" step="1" onchange="updateTextInput5(this.value);"  onclick="showhide5()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree5"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time5"></span>
+              </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    </table>
+</div>
+
+<input name="dec11"  type="hidden" id="textInput1" value="" size="1" style="text-align:center;">
+<input name="dec21"  type="hidden" id="textInput2" value="" size="1" style="text-align:center;">
+<input name="dec31"  type="hidden" id="textInput3" value="" size="1" style="text-align:center;">
+<input name="dec41"  type="hidden" id="textInput4" value="" size="1" style="text-align:center;">
+<input name="dec51"  type="hidden" id="textInput5" value="" size="1" style="text-align:center;">
+
+    <button id="buttonfin" class="answer btn btn-success" >Entscheidungen übermitteln</button>
+    <input type="hidden" name="first" value="{{ lets }}" id="c1"  >
+    <input type="hidden" name="first" value="{{ corr }}" id="a1"  >
+    <input type="hidden" name="first" value="{{ answ }}" id="a2"  >
+    <input type="hidden" name="tryans" value=0  id="aa1"  >
+    {{ form.tryans.errors }}
+{% endblock %}

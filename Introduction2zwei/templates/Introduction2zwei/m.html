@@ -1,0 +1,105 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    {% if participant.vars.mon == 1 %}Version A{% elif participant.vars.mon == 2 %}Version B{% elif participant.vars.mon == 3 %}Version C{% elif participant.vars.mon == 4 %}Version D{% else %}Version E{% endif %}
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=f>
+<table class="table">
+    <table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr>
+                <td width="60%" style="vertical-align: top; text-align: left" ><p  align="justify">In der Version "Geldanreiz" wird, wie in allen Versionen, für jede gelöste Aufgabe ein Baum in einem Aufforstungsprojekt geplfanzt. Zusätzlich bekommen Sie <strong>einen Bonus von 0,5€</strong> für jede korrekt beantwortete Aufgabe ausgezahlt. Allerdings wird Ihre Teilnahmevergütung von 20€ auf 15€ reduziert, so dass Sie erst ab der elften gelösten Aufgabe geldlich besser gestellt sind als in der Basisversion. Zum Vergleich: Zehn Aufgaben zu bearbeiten gelingt 60% der Personen in der Basisversion.<br>In dem Beispielbild ist zu sehen, dass Ihnen während der Bearbeitung sowohl die bereits gepflanzten Bäume als auch der bereits verdiente Geldbetrag jederzeit angezeigt wird. </p>
+                <td width="38%" style="vertical-align: center; text-align: right" ><img class=im6 src="{% static "pebs/money.png" %}" /></td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+</div>
+
+    <button class="answer btn btn-success" >Weiter</button>
+{% endblock %}

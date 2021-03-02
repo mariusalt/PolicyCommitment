@@ -1,0 +1,110 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Spendenentscheidung
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+* {
+    font-size: 17px;/* <-- fonts */
+}
+.a{
+        padding-top: 10px ;
+        padding-bottom: 2px ;
+    }
+.b{
+        padding-top: 1px ;
+    }
+.c{
+        padding-bottom: 30px ;
+    }
+img.im1 {
+        max-width:180%;
+        max-height:180%;
+}
+img.im2 {
+        max-width:30%;
+        max-height:30%;
+}
+.input-group{
+        padding-top: 3px ;
+        padding-bottom: 5px ;
+    }
+
+tr.border td {
+  border-top: thin solid black;
+  border-bottom: thin solid black;
+}
+
+tr.border td:first-child {
+  border-left: thin solid black;
+}
+
+tr.border td:last-child {
+  border-right: thin solid black;
+}
+th, td {
+  padding: 10px;
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class=a>
+<p>Vor Beendigung des heutigen Teils weisen wir Sie noch darauf hin, dass Sie nach Beendigung von Teil 2 die Möglichkeit haben einen Teil Ihrer Teilnahmevergütung an die drei unten genannten Organisationen zu spenden. Sie haben die Gelegenheit heute schon über die Höhe der Spende zu entscheiden, welche in einer Woche ausgegührt würde. Am Ende des zweiten Teils nächste Woche werden wir Sie erneut fragen, so dass Sie die Option haben werden die heute getroffene Entscheidung nochmals zu ändern.</p> 
+</div>
+
+<div class=b>
+Falls Sie diese Spendengelegenheit wahrnehmen wollen, tragen Sie bitte unten ein, welchen Prozentsatz Ihrer Vergütung Sie spenden möchten (Teilnehmende werden im Durchschnitt ca. 20€ verdienen. Es stehen folgende Organisationen zur Auswahl:</p>
+</div>
+
+<div class=c>
+<table border=0 class="centerTable" width = "100%">
+        <tbody>
+            <tr class="border">
+                <td width="70%" align="left" height="70px"><p align="justify">Der WWF (World Wide Fund For Nature) wurde 1961 gegründet und ist eine der größten internationalen Natur- und Umweltschutzorganisationen. Der WWF setzt sich ein für den Erhalt der biologischen Vielfalt der Erde, die nachhaltige Nutzung natürlicher Ressourcen und die Eindämmung von Umweltverschmutzung und schädlichem Konsumverhalten.</p></td>
+                <td width="30%" align="center" height="70px"><img class=im1 src="{% static "pebs/wwf1.png" %}" /></td>
+            </tr>
+            <tr class="border">
+                <td width="70%" align="left" height="70px"><p align="justify">Um dem Plastikmüllproblem in Nord- und Ostsee etwas entgegenzusetzen, hat der NABU im Jahr 2010 das Projekt „Meere ohne Plastik“ gestartet. Darin erarbeitet der NABU Informationsmaterialien für und mit Fischern und Wassersportlern. Außerdem werden Reinigungsaktionen an Stränden und Flussufern organisiert und das Umweltmonitoring an der Nord- und Ostseeküste wird aktiv unterstützt. </p></td>
+                <td width="30%" align="center" height="70px"><img class=im1 src="{% static "pebs/mop1.png" %}" /></td>
+            </tr>
+            <tr class="border">
+                <td width="70%" align="left" height="70px"><p align="justify">Die Mannheimer Tafel beugt Lebensmittelverschwendung vor, indem alle qualitativ einwandfreien Nahrungsmittel, die im Wirtschaftsprozess nicht mehr verwendet werden können, an Bedürftige verteilt werden. Die Tafeln setzen sich gegen das Wegwerfen von Lebensmitteln ein und schonen somit Umweltressourcen. </p></td>
+                <td width="30%" align="center" height="70px"><img class=im1 src="{% static "pebs/tafel1.png" %}" /></td>
+            </tr>
+        </tbody>
+</table>
+</div>
+<p>Bitte beachten Sie, dass Ihre Angaben auf eine Stelle nach dem Komma gerundet werden.</p>
+<table border=0  width="60%" >
+        <tbody>
+            <tr>
+               <td width="42%"><p><strong>Spende an<br>WWF:</strong></p></td>
+               <td align="right">{{ form.spendeWWF }}</td>
+               <td align="left"><span class="input-group-addon">% der Gesamtvergütung</span></td>
+            </tr>
+            <tr>  
+               <td width="42%"><p><strong>Spende an<br>Meere ohne Plastik, NABU:</strong></p></td>
+               <td align="right">{{ form.spendeMeerPlastik }}</td>
+               <td align="left"><span class="input-group-addon">% der Gesamtvergütung</span></td>
+            </tr>
+            <tr>  
+               <td width="42%"><p><strong>Spende an<br>Mannheimer Tafel:</strong></p></td>
+               <td align="right">{{ form.spendeMannTafel }}</td>
+               <td align="left"><span class="input-group-addon">% der Gesamtvergütung</span></td>
+            </tr>
+            {{ form.errors }}
+        </tbody>
+    </table>
+    <br>
+
+        <br>
+    {% next_button %}
+<input type="hidden" name="mail"  value="cover">
+<input type="hidden" name="mail2" value="cover" >
+<input type="hidden" name="tel" value="cover">
+{% endblock %}

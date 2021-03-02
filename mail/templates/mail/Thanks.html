@@ -1,0 +1,88 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    E-Mail und Reminder
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+.a{
+        padding-top: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 5px ;
+        padding-bottom: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 30px ;
+    }
+* {
+    font-size: 17px;/* <-- fonts */
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class=a>
+  <p align="justify">Gegeben Ihrer Auswahl werden wir Ihnen heute {{ participant.vars.woto }}€ und bei erfolgreichem Abschluss nächste Woche {% if participant.vars.wowe == 0 %}den gesamten Betrag{% else %}den gesamten Betrag abzüglich {{ participant.vars.wowe }}€{% endif %} überweisen.</p>
+  </div>
+<div class=a>
+  <p align="justify">Um sich am zweiten Termin in einer Woche wieder anmelden zu können, notieren Sie sich bitte folgenden Anmeldecode:<br>
+    <strong>Anmeldecode: <span style="color:red";>{{ player.id_p }}</span></strong></p>
+  </div>
+
+	
+<div class=b>
+	<p align="justify">Um Überweisungen zu veranlassen, benötigen wir die E-Mail-Adresse, die Sie bei PayPal hinterlegt haben. Bitte geben Sie diese Mailadresse im unteren Eingabefeld an (Ihre Daten werden streng vertraulich behandelt werden und werden nicht an dritte weitergegeben). 
+	</div>
+
+
+<table class="tbl" border=0 width="70%">
+        <tbody>
+            <tr>
+                <td   width="38%">E-Mail-Adresse (PayPal)
+                </td>
+                <td  width="30%"><input type="text" name="mail" autofocus="autofocus" required>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+<div class=b>
+    <p align="justify">
+    Zudem haben Sie die Möglichkeit eine Erinnerungs-SMS und/oder eine Erinnerungs-E-Mail ein Tag vor dem zweiten Termin und am Tag selber zu erhalten. Wenn Sie dies wünschen, geben Sie bitte zusätzlich Ihre Telefonnummer und gegebenenfalls eine alternative E-Mailadresse an, an die der Reminder geschickt werden soll. </p>
+    </div>
+{% formfield player.reminder label="" %}
+    <table class="tbl" border=0 width="65%">
+        <tbody>
+            <tr>
+                <td   >Telefonnummer für Reminder
+                </td>
+                <td  ><input type="text" name="tel" >
+                </td>
+            </tr>
+            <tr>
+                <td  >Alternative E-Mail-Adresse für Reminder
+                </td>
+                <td  ><input type="text" name="mail2" >
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br>
+
+  <br>
+
+    {% next_button %}
+
+{% endblock %}

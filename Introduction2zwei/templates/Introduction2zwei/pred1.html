@@ -1,0 +1,948 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Vorhersage Zusatzaufgabe Entscheidung Teil 2
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript">  
+
+var slider1 = document.getElementById("slider1");
+var output1 = document.getElementById("show1");
+var time1 = document.getElementById("time1");
+var at1 = document.getElementById("at1");
+var tree1 = document.getElementById("tree1");
+
+var val1;
+
+slider1.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time1.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output1.innerHTML = this.value + " Aufgaben";
+  val1=this.value;
+  $('.slider1').addClass('myclass');
+  if (this.value == 1) {
+  tree1.innerHTML = Math.round(this.value*14)/100 + "€";
+} else {
+  tree1.innerHTML = Math.round(this.value*14)/100 + "€";
+}
+}
+
+at1.oninput = function() {
+  if (isNaN(val1)==true){} else {
+  v1min = Math.floor((this.value*val1)/60)
+  v1sec = Math.round(((this.value*val1)/60-Math.floor((this.value*val1)/60))*60)
+  time1.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+}
+if (isNaN(val2)==true){} else {
+  v2min = Math.floor((this.value*val2)/60)
+  v2sec = Math.round(((this.value*val2)/60-Math.floor((this.value*val2)/60))*60)
+  time2.innerHTML="Benötigte Zeit: " + v2min + " Min. " + v2sec + " Sek.";
+}
+  if (isNaN(val3)==true){} else {
+  v3min = Math.floor((this.value*val3)/60)
+  v3sec = Math.round(((this.value*val3)/60-Math.floor((this.value*val3)/60))*60)
+  time3.innerHTML="Benötigte Zeit: " + v3min + " Min. " + v3sec + " Sek.";
+}
+  if (isNaN(val4)==true){} else {
+  v4min = Math.floor((this.value*val4)/60)
+  v4sec = Math.round(((this.value*val4)/60-Math.floor((this.value*val4)/60))*60)
+  time4.innerHTML="Benötigte Zeit: " + v4min + " Min. " + v4sec + " Sek.";
+}
+  if (isNaN(val5)==true){} else {
+  v5min = Math.floor((this.value*val5)/60)
+  v5sec = Math.round(((this.value*val5)/60-Math.floor((this.value*val5)/60))*60)
+  time5.innerHTML="Benötigte Zeit: " + v5min + " Min. " + v5sec + " Sek.";
+}
+}
+function updateTextInput1(val1) {
+          document.getElementById('textInput1').value=val1;
+          }
+
+
+
+var slider2 = document.getElementById("slider2");
+var output2 = document.getElementById("show2");
+var time2 = document.getElementById("time2");
+var tree2 = document.getElementById("tree2");
+
+var val2;
+
+slider2.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time2.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output2.innerHTML = this.value + " Aufgaben";
+  val2=this.value;
+  $('.slider2').addClass('myclass');
+    if (this.value == 1) {
+  tree2.innerHTML = Math.round(this.value*12)/100 + "€";
+} else {
+  tree2.innerHTML = Math.round(this.value*12)/100 + "€";
+}
+}
+
+function updateTextInput2(val2) {
+          document.getElementById('textInput2').value=val2;
+          }
+
+
+
+
+
+
+
+
+var slider3 = document.getElementById("slider3");
+var output3 = document.getElementById("show3");
+var time3 = document.getElementById("time3");
+var tree3 = document.getElementById("tree3");
+
+var val3;
+
+slider3.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time3.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output3.innerHTML = this.value + " Aufgaben";
+  val3=this.value;
+  $('.slider3').addClass('myclass');
+  if (this.value == 1) {
+  tree3.innerHTML = Math.round(this.value*10)/100 + "€";
+} else {
+  tree3.innerHTML = Math.round(this.value*10)/100 + "€";
+}
+}
+
+
+function updateTextInput3(val3) {
+          document.getElementById('textInput3').value=val3;
+          }
+
+
+
+
+
+
+
+
+
+
+var slider4 = document.getElementById("slider4");
+var output4 = document.getElementById("show4");
+var time4 = document.getElementById("time4");
+var tree4 = document.getElementById("tree4");
+
+var val4;
+
+slider4.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time4.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output4.innerHTML = this.value + " Aufgaben";
+  val4=this.value;
+  $('.slider4').addClass('myclass');
+    if (this.value == 1) {
+  tree4.innerHTML = Math.round(this.value*8)/100 + "€";
+} else {
+  tree4.innerHTML = Math.round(this.value*8)/100 + "€";
+}
+}
+
+
+function updateTextInput4(val4) {
+          document.getElementById('textInput4').value=val4;
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+var slider5 = document.getElementById("slider5");
+var output5 = document.getElementById("show5");
+var time5 = document.getElementById("time5");
+var tree5 = document.getElementById("tree5");
+
+var val5;
+
+slider5.oninput = function() {
+  v1min = Math.floor((this.value*at1.value)/60)
+  v1sec = Math.round(((this.value*at1.value)/60-Math.floor((this.value*at1.value)/60))*60)
+  time5.innerHTML="Benötigte Zeit: " + v1min + " Min. " + v1sec + " Sek.";
+  output5.innerHTML = this.value + " Aufgaben";
+  val5=this.value;
+$('.slider5').addClass('myclass');
+  if (this.value == 1) {
+  tree5.innerHTML = Math.round(this.value*6)/100 + "€";
+} else {
+  tree5.innerHTML = Math.round(this.value*6)/100 + "€";
+}
+}
+
+
+function updateTextInput5(val5) {
+          document.getElementById('textInput5').value=val5;
+          }
+
+
+  document.getElementById("hideit").style.display="none";
+      function shownow()
+    {
+        var div = document.getElementById("hideit");
+    if (div.style.display === "none") {
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+      }
+    } 
+
+
+        </script>
+</script>
+{% endblock %}
+
+
+{% block styles %}
+  <style type="text/css">
+.a{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.b{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.c{
+        padding-top: 10px ;
+    }
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+img.im1 {
+  max-width:100%;
+  max-height:100%;
+  padding-bottom: 40px ;
+}
+img.im2 {
+  max-width:120%;
+  max-height:120%;
+  padding-bottom: 40px ;
+}
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider1 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider1:focus {
+    outline: none;
+}
+
+.slider1::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider1::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+#buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+
+.slider1 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider1::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider1::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider2 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider2:focus {
+    outline: none;
+}
+
+.slider2::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider2::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider2 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider2::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider2::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider3 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider3:focus {
+    outline: none;
+}
+
+.slider3::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider3::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider3 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider3::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider3::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider4 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider4:focus {
+    outline: none;
+}
+
+.slider4::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider4::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider4 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider4::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider4::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myclass::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -14px !important;
+}
+
+.slider5 {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+.slider5:focus {
+    outline: none;
+}
+
+.slider5::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider5::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+
+.slider5 {
+    -moz-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+}
+
+
+.slider5::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+.slider5::-moz-range-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -moz-appearance: none;
+}
+
+#buttonvier {
+    -moz-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    box-shadow:inset 0px 1px 0px 0px #c7cbd6;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b7bac2), color-stop(1, #7c858f));
+    background:-moz-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-webkit-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-o-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:-ms-linear-gradient(top, #b7bac2 5%, #7c858f 100%);
+    background:linear-gradient(to bottom, #b7bac2 5%, #7c858f 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7bac2', endColorstr='#7c858f',GradientType=0);
+    background-color:#b7bac2;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #7c7f87;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    padding:5px 16px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #1c2847;
+  }
+
+#buttonvier:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7c858f), color-stop(1, #b7bac2));
+  background:-moz-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-webkit-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-o-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:-ms-linear-gradient(top, #7c858f 5%, #b7bac2 100%);
+  background:linear-gradient(to bottom, #7c858f 5%, #b7bac2 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c858f', endColorstr='#b7bac2',GradientType=0);
+  background-color:#7c858f;
+  }
+  #buttonvier:active {
+  }
+
+
+
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class=a>
+<p align="justify">
+Beim zweiten Termin, in sieben Tagen, werden wir Sie erneut fragen, wie viele Aufgaben Sie an dem gegebenen Tag bearbeiten möchten. Wir bitten Sie nun eine Vorhersage zu treffen, wie Sie sich an dem Termin in einer Woche entscheiden werden. Denken Sie darüber nach, was Sie zu diesem Zeitpunkt wohl antworten werden.<br><br>
+</p>
+Bitte geben Sie eine <strong>Vermutung</strong> darüber ab, wie Sie sich <strong>in einer Woche entscheiden werden</strong>. Klicken Sie hierzu in die blauen Leisten und verschieben Sie die Regler wie gewünscht.<br><br>
+</div>
+<div style="margin-bottom:20px;">
+  <strong>Vermutete Auswahl in Teil 2</strong> <br>
+  Durchschnittliche Bearbeitungsgeschwindigkeit = <input  type="text" class="at1" id="at1" value="29" size="1" style="text-align:center;" onchange="updateText(this.value);"> Sekunden pro Aufgabe<br><br>
+     <table border=0 class="centerTable" width = "100%">
+        <tbody><tr>
+                <td style="vertical-align: center; text-align: left" ><strong>Entlohnung</strong></td>
+                  <td colspan=4 style="vertical-align: center; text-align: center;" > </td>
+                
+                 </tr>
+            <tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,14€ pro Aufgabe:{{ form.ass11.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show1"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider1" id="slider1" type="range"  min="0" max="50" step="1" onchange="updateTextInput1(this.value);"  onclick="showhide1()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree1"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time1"></span>
+              </td>
+            </tr>
+            <tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,12€ pro Aufgabe:{{ form.ass21.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show2"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider2" id="slider2" type="range"  min="0" max="50" step="1" onchange="updateTextInput2(this.value);"  onclick="showhide2()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree2"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time2"></span>
+              </td>
+            </tr><tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,10€ pro Aufgabe:{{ form.ass31.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show3"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider3" id="slider3" type="range"  min="0" max="50" step="1" onchange="updateTextInput3(this.value);"  onclick="showhide3()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree3"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time3"></span>
+              </td>
+            </tr><tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,08€ pro Aufgabe:{{ form.ass41.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show4"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider4" id="slider4" type="range"  min="0" max="50" step="1" onchange="updateTextInput4(this.value);"  onclick="showhide4()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree4"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time4"></span>
+              </td>
+            </tr><tr>
+                <td width="20%" style="vertical-align: center; text-align: left" ><strong>0,06€ pro Aufgabe:{{ form.ass51.errors }}</strong></td>
+                  <td width="15%" style="vertical-align: center; text-align: center;" > <strong><span id="show5"></span></strong></td>
+                <td width="35%" style="vertical-align: center; text-align: center" ><input class="slider5" id="slider5" type="range"  min="0" max="50" step="1" onchange="updateTextInput5(this.value);"  onclick="showhide5()"></td>
+                <td width="2%"></td>
+                <td width="40%" style="vertical-align: center; text-align: left" ><strong><span id="tree5"></span></strong></td>
+            </tr>
+            <tr>
+              <td colspan=4>
+              </td>
+              <td style="vertical-align: center; text-align: left" ><span id="time5"></span>
+              </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    </table>
+</div>
+<table class="centerTable" style="border-collapse: collapse; border-style: hidden;"  width = "100%">
+         <thead>
+            <tr>
+            <td style="text-align: right;">
+              {{ form.ass11.errors }}
+              {{ form.ass21.errors }}
+              {{ form.ass31.errors }}
+              {{ form.ass41.errors }}
+              {{ form.ass51.errors }}
+
+<div id='buttonvier' onclick="shownow()">Falls Slider nicht bewegbar, bitte hier klicken</div>
+<div id="hideit">
+  <strong>Manuell einstellen:</strong><br>
+    <table class="centerTable" align="right" style="border-collapse: collapse; border-style: hidden;"  width = "30%">
+         <thead>
+          <tr>
+  <td>
+  0,14€:
+  </td>
+<td>
+<input name="ass11"  type="text" id="textInput1" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+0,12€:
+</td>
+<td>
+<input name="ass21"  type="text" id="textInput2" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+0,10€:
+</td>
+<td>
+<input name="ass31"  type="text" id="textInput3" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+0,08€:
+</td>
+<td>
+<input name="ass41"  type="text" id="textInput4" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+0,06€:
+</td>
+<td>
+<input name="ass51"  type="text" id="textInput5" value="" size="1" style="text-align:center;">
+  </td>
+</tr>
+<tr>
+  <td>
+<div>
+  </td>
+  </tr>
+  </thead>
+</table>
+</div>
+</td>
+</tr>
+</thead>
+</table>
+
+
+
+
+    <button id="buttonfin" class="answer btn btn-success" >Vermutungen übermitteln</button>
+{% endblock %}

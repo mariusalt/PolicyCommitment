@@ -1,0 +1,391 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Auszahlung
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript">
+var wag = document.getElementById("c1").value;
+var puni = document.getElementById("c2").value;
+document.getElementById('c3').innerHTML = wag/100 + "€";
+document.getElementById('c4').innerHTML = "-" + puni/100 + "€";
+
+</script>
+  {% endblock %}
+{% block styles %}
+  <style type="text/css">
+.d{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.e{
+        padding-top: 60px ;
+    }
+.f{
+        padding-top: 60px ;
+        padding-bottom: 10px ;
+    }
+.g{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+.h{
+        padding-top: 10px ;
+    }
+.j{
+        padding-bottom: 1px ;
+    }
+.i{
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+    }
+tr.border td {
+  border: thin solid black;
+}
+
+* {
+    font-size: 17px;/* <-- fonts */
+}
+.a{
+        padding-top: 10px ;
+        padding-bottom: 2px ;
+    }
+.b{
+        padding-top: 1px ;
+    }
+.c{
+        padding-bottom: 30px ;
+    }
+img.im1 {
+        max-width:180%;
+        max-height:180%;
+}
+img.im2 {
+        max-width:30%;
+        max-height:30%;
+}
+.input-group{
+        padding-top: 3px ;
+        padding-bottom: 5px ;
+    }
+
+tr.border td {
+  border-top: thin solid black;
+  border-bottom: thin solid black;
+}
+
+tr.border td:first-child {
+  border-left: thin solid black;
+}
+
+tr.border td:last-child {
+  border-right: thin solid black;
+}
+th, td {
+  padding: 10px;
+}
+
+
+img.im3 {
+  max-width:200%;
+  max-height:500%;
+  padding-bottom: 40px ;
+}
+img.im4 {
+  max-width:200%;
+  max-height:200%;
+  padding-bottom: 40px ;
+}
+img.im5 {
+  max-width:90%;
+  max-height:90%;
+  padding-bottom: 30px ;
+}
+img.im6 {
+  max-width:95%;
+  max-height:95%;
+}
+img.im7 {
+  max-width:90%;
+  max-height:90%;
+}
+#button {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #button:hover {
+  background-color:#3c5ccf;
+  }
+  #button:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  #buttonfin {
+  background-color:#4f75ff;
+  border-color:#4f75ff;
+  }
+  #buttonfin:hover {
+  background-color:#3c5ccf;
+  }
+  #buttonfin:focus {
+    outline: 0;
+    box-shadow: 0 0 4px blue;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="cont">
+  {% if participant.vars.exwind == 1 %}
+
+<p><strong>Ihr Ergebnis aus der Zusatzaufgabe:</strong></p>
+<table border=1 class="centerTable" width = "80%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Korrekt bearbeitete Aufgaben</b></td>   
+              <td width="33%" align="center"><b>Entlohnung pro korr. Aufgabe</b></td>
+              {% if participant.vars.hype == "mon" %}
+              <td width="33%" align="center"><b>Summe Bonus</b></td>
+              {% elif participant.vars.hype == "pun" %}
+              <td width="33%" align="center"><b>Summe Sanktion</b></td>
+              {% endif %}
+              <td width="33%" align="center"><b>Zusatzverdienst in Zusatzaufg. insg.</b></td>
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> {{ wotot }}</td>
+              <td width="33%" align="center" height="70px">  {{ pwork }}€ </td>
+              {% if participant.vars.hype == "mon" %}
+              <td width="33%" align="center" id="c3">{{ participant.vars.wage }}€</td>
+              {% elif participant.vars.hype == "pun" %}
+              <td width="33%" align="center" id="c4">{{ participant.vars.pun }}€</td>
+              {% endif %}
+              <td width="33%" align="center" height="70px"> {{ pex }}€</td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+<br>
+  {% if participant.vars.ptoday == 5 %}
+<p><strong>Zusatzverdienst:</strong></p>
+<table border=1 class="centerTable" width = "100%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Performance-Schätzfrage"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Schätzung Zeit in Versionen"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Gemeinschaftsprojekt Frage"</b></td>  
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Lotterie"</b></td>  
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Zusatzaufgabe"</b></td>
+              <td width="33%" align="center"><b>Zusatzverdienst insgesamt</b></td> 
+
+
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.belbo }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.scored }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.pggpay }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payla }}€</td>
+              <td width="33%" align="center" height="70px"> {{ pex }}€</td>
+              <td width="33%" align="center" height="70px"> {{ extot }}€</td>
+
+            </tr>
+
+         </tbody>
+         
+      </table>
+
+    <br>
+<p><strong>Ihre Vergütung:</strong></p>
+<table border=1 class="centerTable" width = "100%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Bereits ausgezahlter Betrag</b></td>
+              <td width="33%" align="center"><b>Teilnahmevergütung</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst insgesamt</b></td> 
+              <td width="33%" align="center"><b>Heutiger Verdienst</b></td>
+              <td width="33%" align="center"><b>Gesamtverdienst</b></td>
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> 5€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payoff1 }}€</td>
+              <td width="33%" align="center" height="70px"> {{ extot }}€</td>
+              <td width="33%" align="center" height="70px"> {{ totpay }}€</td>
+              <td width="33%" align="center" height="70px"> {{ totpay2 }}€</td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+
+    <br>
+
+
+      <p>&nbsp;</p>
+</div>
+{% else %}
+<p><strong>Ihre Vergütung:</strong></p>
+<table border=1 class="centerTable" width = "100%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Teilnahmevergütung</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Performance-Schätzfrage"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Schätzung Zeit in Versionen"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Gemeinschaftsprojekt Frage"</b></td>   
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Lotterie"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Zusatzaufgabe"</b></td>
+              <td width="33%" align="center"><b>Gesamtverdienst</b></td>
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payoff1 }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.belbo }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.scored }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.pggpay }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payla }}€</td>
+              <td width="33%" align="center" height="70px"> {{ pex }}€</td>
+              <td width="33%" align="center" height="70px"> {{ totpay }}€</td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+
+    <br>
+
+    
+<input type="hidden" name="test1" value="{{ wage }}" id="c1"  >
+<input type="hidden" name="test2" value="{{ pun }}" id="c2"  >
+
+      <p>&nbsp;</p>
+</div>
+{% endif %}
+
+{% else %}
+{% if participant.vars.ptoday == 5 %}
+<p><strong>Zusatzverdienst:</strong></p>
+<table border=1 class="centerTable" width = "100%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Performance-Schätzfrage"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Schätzung Zeit in Versionen"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Gemeinschaftsprojekt Frage"</b></td>
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Lotterie"</b></td>    
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Zusatzaufgabe"</b></td>
+              <td width="33%" align="center"><b>Zusatzverdienst insgesamt</b></td> 
+
+
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.belbo }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.scored }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.pggpay }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payla }}€</td>
+              <td width="33%" align="center" height="70px">  keine Teilnahme</td>
+              <td width="33%" align="center" height="70px">{{ extot }}€</td>
+
+            </tr>
+
+         </tbody>
+         
+      </table>
+
+    <br>
+<p><strong>Ihre Vergütung:</strong></p>
+<table border=1 class="centerTable" width = "100%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Bereits ausgezahlter Betrag</b></td>
+              <td width="33%" align="center"><b>Teilnahmevergütung</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst insgesamt</b></td> 
+              <td width="33%" align="center"><b>Heutiger Verdienst</b></td>
+              <td width="33%" align="center"><b>Gesamtverdienst</b></td>
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> 5€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payoff1 }}€</td>
+              <td width="33%" align="center" height="70px"> {{ extot }}€</td>
+              <td width="33%" align="center" height="70px"> {{ totpay }}€</td>
+              <td width="33%" align="center" height="70px"> {{ totpay2 }}€</td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+
+    <br>
+
+    
+
+
+      <p>&nbsp;</p>
+</div>
+{% else %}
+<p><strong>Ihre Vergütung:</strong></p>
+<table border=1 class="centerTable" width = "100%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Teilnahmevergütung</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Performance-Schätzfrage"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Schätzung Zeit in Versionen"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Gemeinschaftsprojekt Frage"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Lotterie"</b></td> 
+              <td width="33%" align="center"><b>Zusatzverdienst aus "Zusatzaufgabe"</b></td>
+              <td width="33%" align="center"><b>Gesamtverdienst</b></td>
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payoff1 }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.belbo }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.scored }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.pggpay }}€</td>
+              <td width="33%" align="center" height="70px"> {{ participant.vars.payla }}€</td>
+              <td width="33%" align="center" height="70px"> keine Teilnahme</td>
+              <td width="33%" align="center" height="70px"> {{ totpay }}€</td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+
+    <br>
+
+    
+
+
+      <p>&nbsp;</p>
+</div>
+{% endif %}
+{% endif %}
+
+<p><strong>Verrechnung der Spenden:</strong></p>
+<table border=1 class="centerTable" width = "100%">
+         <thead>
+            <tr>
+              <td width="33%" align="center"><b>Spende WWF</b></td> 
+              <td width="33%" align="center"><b>Spende NABU, "Meere ohne Plastik"</b></td> 
+              <td width="33%" align="center"><b>Spende Mannheimer Tafel</b></td> 
+              <td width="33%" align="center"><b>Ihre Auszahlung</b></td> 
+            </tr>
+            <tr>
+              <td width="33%" align="center" height="70px"> {{ wf }}€</td>
+              <td width="33%" align="center" height="70px"> {{ me }}€</td>
+              <td width="33%" align="center" height="70px"> {{ ta }}€</td>
+              <td width="33%" align="center" height="70px"> {{ own }}€</td>
+            </tr>
+
+         </tbody>
+         
+      </table>
+
+    <br>
+
+    <br>
+    Klicken Sie nun Bitte auf "Weiter", um die Studie zu beenden. Vielen Dank für Ihre Teilnahme.<br>
+<p>&nbsp;</p>
+    <button id="buttonfin" class="answer btn btn-success" >Weiter</button>
+
+{% endblock %}
+
+
